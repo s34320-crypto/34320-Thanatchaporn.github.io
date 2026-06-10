@@ -5,7 +5,7 @@
 <meta viewport="width=device-width, initial-scale=1.0">
 <title>แฟ้มสะสมงานของฉัน </title>
 <style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
+body { font-family: sans-serif; background-color: #FFCCCC; text-align: center;
 padding: 30px; }
 .container { max-width: 800px; margin: 0 auto; }
 .project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
@@ -21,7 +21,7 @@ padding: 30px; }
 <!-- กล่องผลงานชิ้นที่ 1 -->
 <div class="project-card">
 <h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คํานวณ </h3>
-<p>รายละเอียดชนงาน ิ้ : เขียนอธิบายสันๆ ว่าท;าอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง ้ </p>
+<p>รายละเอียดชิ้นงาน : เขียนอธิบายสันๆ ว่าทําอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
 </div>
 <!-- กล่องผลงานชิ้นที่ 2 -->
 <div class="project-card">
