@@ -2,6 +2,7 @@
 <html lang="th">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -9,11 +10,12 @@
 
     <title>Portfolio - Thanatchaporn Detrit</title>
 
+
     <style>
 
-        /* =========================================
+        /* =====================================================
            RESET
-        ========================================= */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -21,25 +23,33 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
 
             min-height: 100vh;
 
+            color: #000000;
+
             font-family:
                 "Noto Sans Thai",
-                "Tahoma",
+                Tahoma,
                 Arial,
                 sans-serif;
 
-            color: #000000;
-
             overflow-x: hidden;
 
-            /* พื้นหลัง 3 สีแนวเฉียง */
+            /*
+             พื้นหลังหลัก 3 สี
+             #FFCCCC
+             #DDA0DD
+             #F5DEB3
+            */
+
             background:
                 repeating-linear-gradient(
                     135deg,
@@ -53,310 +63,384 @@
                     #F5DEB3 360px,
                     #F5DEB3 540px
                 );
+
+            position: relative;
         }
 
 
-        /* =========================================
-           RAINBOW DOTS
-        ========================================= */
+        /* =====================================================
+           พื้นหลังจากภาพตัวอย่าง
+           
+           ใส่ภาพ background.jpeg ในโฟลเดอร์ images
+           
+           ถ้าไม่ต้องการใช้ภาพ ให้ลบ background-image
+           ส่วนนี้ออกได้
+        ===================================================== */
 
-        .rainbow-dots {
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 0;
+
+            pointer-events: none;
+
+            background-image:
+                url("images/background.jpeg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            opacity: 0.72;
+
+        }
+
+
+        /* =====================================================
+           แสงพาสเทลทับพื้นหลัง
+        ===================================================== */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 0;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,204,204,0.18),
+                    rgba(221,160,221,0.15),
+                    rgba(245,222,179,0.18)
+                );
+
+        }
+
+
+        /* =====================================================
+           RAINBOW RECTANGLES
+           เม็ดสีสี่เหลี่ยมผืนผ้าจำนวนมาก
+        ===================================================== */
+
+        .rainbow-particles {
 
             position: fixed;
 
             inset: 0;
 
             width: 100%;
+
             height: 100%;
 
-            pointer-events: none;
+            z-index: 1;
 
-            z-index: 0;
+            pointer-events: none;
 
             overflow: hidden;
         }
 
 
-        .rainbow-dots span {
+        .rainbow-particles span {
 
             position: absolute;
 
-            width: 13px;
-            height: 13px;
+            width: 14px;
 
-            border-radius: 50%;
+            height: 8px;
 
-            opacity: 0.85;
+            border-radius: 2px;
+
+            opacity: 0.75;
 
             animation:
-                floating 5s ease-in-out infinite;
+                particleFloat
+                5s
+                ease-in-out
+                infinite;
         }
 
 
-        @keyframes floating {
+        @keyframes particleFloat {
 
             0% {
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    rotate(0deg);
             }
 
             50% {
-                transform: translateY(-15px) scale(1.25);
+                transform:
+                    translateY(-12px)
+                    rotate(8deg);
             }
 
             100% {
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    rotate(0deg);
             }
         }
 
 
-        /* =========================================
-           กำหนดตำแหน่งเม็ดสี
-        ========================================= */
+        /* ตำแหน่งเม็ดสี */
 
-        .rainbow-dots span:nth-child(1) {
+        .rainbow-particles span:nth-child(1) {
             left: 2%;
             top: 8%;
-            background: red;
+            background: #FF0000;
         }
 
-        .rainbow-dots span:nth-child(2) {
-            left: 7%;
+        .rainbow-particles span:nth-child(2) {
+            left: 6%;
             top: 25%;
-            background: orange;
+            background: #FF8C00;
         }
 
-        .rainbow-dots span:nth-child(3) {
-            left: 12%;
-            top: 45%;
-            background: yellow;
+        .rainbow-particles span:nth-child(3) {
+            left: 11%;
+            top: 14%;
+            background: #FFD700;
         }
 
-        .rainbow-dots span:nth-child(4) {
-            left: 18%;
-            top: 15%;
-            background: green;
+        .rainbow-particles span:nth-child(4) {
+            left: 16%;
+            top: 38%;
+            background: #32CD32;
         }
 
-        .rainbow-dots span:nth-child(5) {
-            left: 25%;
-            top: 35%;
-            background: blue;
+        .rainbow-particles span:nth-child(5) {
+            left: 21%;
+            top: 7%;
+            background: #00BFFF;
         }
 
-        .rainbow-dots span:nth-child(6) {
-            left: 32%;
-            top: 10%;
-            background: indigo;
-        }
-
-        .rainbow-dots span:nth-child(7) {
-            left: 40%;
-            top: 25%;
-            background: violet;
-        }
-
-        .rainbow-dots span:nth-child(8) {
-            left: 48%;
-            top: 8%;
-            background: red;
-        }
-
-        .rainbow-dots span:nth-child(9) {
-            left: 56%;
-            top: 30%;
-            background: orange;
-        }
-
-        .rainbow-dots span:nth-child(10) {
-            left: 64%;
-            top: 12%;
-            background: yellow;
-        }
-
-        .rainbow-dots span:nth-child(11) {
-            left: 72%;
-            top: 35%;
-            background: green;
-        }
-
-        .rainbow-dots span:nth-child(12) {
-            left: 80%;
-            top: 10%;
-            background: blue;
-        }
-
-        .rainbow-dots span:nth-child(13) {
-            left: 88%;
+        .rainbow-particles span:nth-child(6) {
+            left: 26%;
             top: 28%;
-            background: violet;
+            background: #4169E1;
         }
 
-        .rainbow-dots span:nth-child(14) {
-            left: 96%;
+        .rainbow-particles span:nth-child(7) {
+            left: 31%;
             top: 15%;
-            background: pink;
+            background: #8A2BE2;
         }
 
-        .rainbow-dots span:nth-child(15) {
-            left: 4%;
-            top: 65%;
-            background: red;
+        .rainbow-particles span:nth-child(8) {
+            left: 37%;
+            top: 34%;
+            background: #FF1493;
         }
 
-        .rainbow-dots span:nth-child(16) {
-            left: 10%;
-            top: 85%;
-            background: orange;
-        }
-
-        .rainbow-dots span:nth-child(17) {
-            left: 18%;
-            top: 70%;
-            background: yellow;
-        }
-
-        .rainbow-dots span:nth-child(18) {
-            left: 27%;
-            top: 90%;
-            background: green;
-        }
-
-        .rainbow-dots span:nth-child(19) {
-            left: 35%;
-            top: 65%;
-            background: blue;
-        }
-
-        .rainbow-dots span:nth-child(20) {
+        .rainbow-particles span:nth-child(9) {
             left: 43%;
-            top: 82%;
-            background: violet;
+            top: 6%;
+            background: #FF0000;
         }
 
-        .rainbow-dots span:nth-child(21) {
-            left: 51%;
-            top: 68%;
-            background: red;
+        .rainbow-particles span:nth-child(10) {
+            left: 48%;
+            top: 24%;
+            background: #FF8C00;
         }
 
-        .rainbow-dots span:nth-child(22) {
+        .rainbow-particles span:nth-child(11) {
+            left: 54%;
+            top: 13%;
+            background: #FFD700;
+        }
+
+        .rainbow-particles span:nth-child(12) {
             left: 60%;
-            top: 90%;
-            background: orange;
+            top: 30%;
+            background: #32CD32;
         }
 
-        .rainbow-dots span:nth-child(23) {
-            left: 68%;
-            top: 72%;
-            background: yellow;
+        .rainbow-particles span:nth-child(13) {
+            left: 66%;
+            top: 8%;
+            background: #00BFFF;
         }
 
-        .rainbow-dots span:nth-child(24) {
-            left: 76%;
-            top: 88%;
-            background: green;
+        .rainbow-particles span:nth-child(14) {
+            left: 72%;
+            top: 20%;
+            background: #4169E1;
         }
 
-        .rainbow-dots span:nth-child(25) {
-            left: 85%;
-            top: 65%;
-            background: blue;
+        .rainbow-particles span:nth-child(15) {
+            left: 78%;
+            top: 6%;
+            background: #8A2BE2;
         }
 
-        .rainbow-dots span:nth-child(26) {
-            left: 94%;
-            top: 82%;
-            background: violet;
-        }
-
-        .rainbow-dots span:nth-child(27) {
-            left: 5%;
-            top: 50%;
-            background: pink;
-        }
-
-        .rainbow-dots span:nth-child(28) {
-            left: 23%;
-            top: 55%;
-            background: red;
-        }
-
-        .rainbow-dots span:nth-child(29) {
-            left: 38%;
-            top: 48%;
-            background: orange;
-        }
-
-        .rainbow-dots span:nth-child(30) {
-            left: 53%;
-            top: 52%;
-            background: yellow;
-        }
-
-        .rainbow-dots span:nth-child(31) {
-            left: 69%;
-            top: 48%;
-            background: green;
-        }
-
-        .rainbow-dots span:nth-child(32) {
+        .rainbow-particles span:nth-child(16) {
             left: 84%;
-            top: 52%;
-            background: blue;
+            top: 26%;
+            background: #FF1493;
         }
 
-        .rainbow-dots span:nth-child(33) {
-            left: 98%;
-            top: 45%;
-            background: violet;
+        .rainbow-particles span:nth-child(17) {
+            left: 90%;
+            top: 12%;
+            background: #FF0000;
         }
 
-        .rainbow-dots span:nth-child(34) {
-            left: 15%;
-            top: 5%;
-            background: pink;
+        .rainbow-particles span:nth-child(18) {
+            left: 96%;
+            top: 30%;
+            background: #FF8C00;
         }
 
-        .rainbow-dots span:nth-child(35) {
-            left: 45%;
-            top: 42%;
-            background: red;
+        .rainbow-particles span:nth-child(19) {
+            left: 3%;
+            top: 55%;
+            background: #FFD700;
         }
 
-        .rainbow-dots span:nth-child(36) {
-            left: 75%;
-            top: 42%;
-            background: orange;
+        .rainbow-particles span:nth-child(20) {
+            left: 8%;
+            top: 72%;
+            background: #32CD32;
         }
 
-        .rainbow-dots span:nth-child(37) {
-            left: 30%;
-            top: 78%;
-            background: yellow;
+        .rainbow-particles span:nth-child(21) {
+            left: 14%;
+            top: 62%;
+            background: #00BFFF;
         }
 
-        .rainbow-dots span:nth-child(38) {
+        .rainbow-particles span:nth-child(22) {
+            left: 20%;
+            top: 83%;
+            background: #4169E1;
+        }
+
+        .rainbow-particles span:nth-child(23) {
+            left: 27%;
+            top: 68%;
+            background: #8A2BE2;
+        }
+
+        .rainbow-particles span:nth-child(24) {
+            left: 33%;
+            top: 91%;
+            background: #FF1493;
+        }
+
+        .rainbow-particles span:nth-child(25) {
+            left: 39%;
+            top: 74%;
+            background: #FF0000;
+        }
+
+        .rainbow-particles span:nth-child(26) {
+            left: 46%;
+            top: 87%;
+            background: #FF8C00;
+        }
+
+        .rainbow-particles span:nth-child(27) {
+            left: 52%;
+            top: 70%;
+            background: #FFD700;
+        }
+
+        .rainbow-particles span:nth-child(28) {
             left: 58%;
-            top: 60%;
-            background: green;
+            top: 93%;
+            background: #32CD32;
         }
 
-        .rainbow-dots span:nth-child(39) {
-            left: 91%;
-            top: 58%;
-            background: blue;
+        .rainbow-particles span:nth-child(29) {
+            left: 65%;
+            top: 76%;
+            background: #00BFFF;
         }
 
-        .rainbow-dots span:nth-child(40) {
-            left: 2%;
-            top: 92%;
-            background: violet;
+        .rainbow-particles span:nth-child(30) {
+            left: 71%;
+            top: 89%;
+            background: #4169E1;
+        }
+
+        .rainbow-particles span:nth-child(31) {
+            left: 77%;
+            top: 67%;
+            background: #8A2BE2;
+        }
+
+        .rainbow-particles span:nth-child(32) {
+            left: 83%;
+            top: 82%;
+            background: #FF1493;
+        }
+
+        .rainbow-particles span:nth-child(33) {
+            left: 89%;
+            top: 70%;
+            background: #FF0000;
+        }
+
+        .rainbow-particles span:nth-child(34) {
+            left: 95%;
+            top: 88%;
+            background: #FF8C00;
+        }
+
+        .rainbow-particles span:nth-child(35) {
+            left: 5%;
+            top: 46%;
+            background: #FFD700;
+        }
+
+        .rainbow-particles span:nth-child(36) {
+            left: 24%;
+            top: 48%;
+            background: #32CD32;
+        }
+
+        .rainbow-particles span:nth-child(37) {
+            left: 42%;
+            top: 47%;
+            background: #00BFFF;
+        }
+
+        .rainbow-particles span:nth-child(38) {
+            left: 62%;
+            top: 45%;
+            background: #8A2BE2;
+        }
+
+        .rainbow-particles span:nth-child(39) {
+            left: 81%;
+            top: 48%;
+            background: #FF1493;
+        }
+
+        .rainbow-particles span:nth-child(40) {
+            left: 98%;
+            top: 55%;
+            background: #FF0000;
         }
 
 
-        /* =========================================
-           NAVIGATION
-        ========================================= */
+        /* =====================================================
+           เมนูด้านบน
+        ===================================================== */
 
         .top-menu {
 
@@ -364,13 +448,13 @@
 
             top: 0;
 
-            z-index: 100;
+            z-index: 20;
 
             width: 100%;
 
-            min-height: 110px;
+            min-height: 125px;
 
-            padding: 20px 30px;
+            padding: 25px 25px;
 
             display: flex;
 
@@ -378,117 +462,141 @@
 
             align-items: center;
 
-            gap: 25px;
+            gap: 35px;
 
             flex-wrap: wrap;
 
             background:
-                rgba(255,255,255,0.25);
+                rgba(255,255,255,0.22);
 
             backdrop-filter:
+                blur(8px);
+
+            -webkit-backdrop-filter:
                 blur(8px);
         }
 
 
-        /* =========================================
-           ลูกอม
-        ========================================= */
+        /* =====================================================
+           CLOUD BUTTON
+           ก้อนเมฆ
+        ===================================================== */
 
-        .candy {
+        .cloud {
 
             position: relative;
 
-            display: flex;
+            min-width: 165px;
 
-            justify-content: center;
+            min-height: 70px;
+
+            padding:
+                20px 28px;
+
+            display: flex;
 
             align-items: center;
 
-            min-width: 150px;
-
-            min-height: 65px;
-
-            padding: 12px 28px;
-
-            background: #ffffff;
-
-            border: 4px solid #000000;
-
-            border-radius: 50px;
+            justify-content: center;
 
             text-decoration: none;
 
             color: #000000;
 
+            background: #ffffff;
+
+            border:
+                4px solid #000000;
+
+            border-radius:
+                50px;
+
             font-size: 17px;
 
-            font-weight: bold;
+            font-weight: 800;
 
             box-shadow:
-                0 7px 0 rgba(0,0,0,0.25);
-
-            cursor: pointer;
+                0 7px 0
+                rgba(0,0,0,0.22);
 
             transition:
-                0.25s;
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+            cursor: pointer;
         }
 
 
-        /* ปลายห่อลูกอม */
+        /* ก้อนเมฆด้านซ้าย */
 
-        .candy::before,
-        .candy::after {
+        .cloud::before {
 
             content: "";
 
             position: absolute;
 
-            width: 23px;
+            width: 48px;
 
-            height: 35px;
+            height: 48px;
+
+            left: 12px;
+
+            top: -25px;
 
             background: #ffffff;
 
-            border: 4px solid #000000;
+            border:
+                4px solid #000000;
+
+            border-radius: 50%;
 
             z-index: -1;
         }
 
 
-        .candy::before {
+        /* ก้อนเมฆด้านขวา */
 
-            left: -18px;
+        .cloud::after {
 
-            transform:
-                rotate(30deg)
-                skewX(-20deg);
+            content: "";
+
+            position: absolute;
+
+            width: 58px;
+
+            height: 58px;
+
+            right: 15px;
+
+            top: -32px;
+
+            background: #ffffff;
+
+            border:
+                4px solid #000000;
+
+            border-radius: 50%;
+
+            z-index: -1;
         }
 
 
-        .candy::after {
-
-            right: -18px;
+        .cloud:hover {
 
             transform:
-                rotate(-30deg)
-                skewX(20deg);
-        }
-
-
-        .candy:hover {
-
-            transform:
-                translateY(-5px)
+                translateY(-6px)
                 scale(1.05);
 
             background: #FFF0F5;
 
             box-shadow:
-                0 12px 0 rgba(0,0,0,0.25);
+                0 13px 0
+                rgba(0,0,0,0.22);
         }
 
 
-        .candy.active {
+        .cloud.active {
 
             background: #F5DEB3;
 
@@ -497,41 +605,42 @@
         }
 
 
-        /* =========================================
-           PAGE
-        ========================================= */
+        /* =====================================================
+           MAIN
+        ===================================================== */
 
-        .page {
+        main {
 
             position: relative;
 
-            z-index: 2;
+            z-index: 5;
 
-            width: min(1100px, 92%);
+            width:
+                min(1100px, 92%);
 
             margin:
-                40px auto 100px;
-
-            text-align: center;
+                auto;
         }
 
 
-        /* =========================================
-           แต่ละ Section
-        ========================================= */
+        /* =====================================================
+           SECTION
+        ===================================================== */
 
         .section {
 
             display: none;
 
             min-height:
-                calc(100vh - 150px);
+                calc(100vh - 125px);
 
             padding:
-                50px 0 80px;
+                45px 0 100px;
+
+            text-align: center;
 
             animation:
-                fadeIn 0.5s ease;
+                appear 0.5s ease;
         }
 
 
@@ -541,14 +650,14 @@
         }
 
 
-        @keyframes fadeIn {
+        @keyframes appear {
 
             from {
 
                 opacity: 0;
 
                 transform:
-                    translateY(20px);
+                    translateY(25px);
             }
 
             to {
@@ -561,61 +670,66 @@
         }
 
 
-        /* =========================================
-           TITLE
-        ========================================= */
+        /* =====================================================
+           PORTFOLIO TITLE
+        ===================================================== */
 
         .main-title {
 
+            margin:
+                45px 0 45px;
+
             font-size:
-                clamp(65px, 11vw, 150px);
+                clamp(70px, 12vw, 155px);
 
             font-weight: 900;
 
-            letter-spacing: 8px;
+            letter-spacing:
+                8px;
 
             color: #000000;
 
-            margin:
-                50px 0 40px;
-
             text-shadow:
-                5px 5px 0 #ffffff,
-                9px 9px 0 rgba(0,0,0,0.15);
+                6px 6px 0 #ffffff,
+                11px 11px 0
+                rgba(0,0,0,0.15);
         }
 
+
+        /* =====================================================
+           TITLE ของหน้าอื่น
+        ===================================================== */
 
         .page-title {
 
-            display: inline-block;
+            margin:
+                35px 0 45px;
 
             font-size:
-                clamp(45px, 7vw, 80px);
+                clamp(48px, 8vw, 90px);
 
             font-weight: 900;
 
             color: #000000;
 
-            margin:
-                30px 0 45px;
-
             text-shadow:
-                4px 4px 0 #ffffff,
-                7px 7px 0 rgba(0,0,0,0.15);
+                5px 5px 0 #ffffff,
+                9px 9px 0
+                rgba(0,0,0,0.15);
         }
 
 
-        /* =========================================
-           รูปหน้าแรก
-        ========================================= */
+        /* =====================================================
+           รูปภาพตรงกลางหน้าแรก
+        ===================================================== */
 
         .main-image {
 
             width:
-                min(520px, 90%);
+                min(560px, 90%);
 
             margin:
-                0 auto 40px;
+                auto auto 45px;
 
             padding: 15px;
 
@@ -624,13 +738,15 @@
             border:
                 5px solid #000000;
 
-            border-radius: 30px;
+            border-radius:
+                30px;
 
             box-shadow:
-                12px 12px 0 rgba(0,0,0,0.2);
+                12px 12px 0
+                rgba(0,0,0,0.20);
 
             transition:
-                0.3s;
+                transform 0.3s ease;
         }
 
 
@@ -652,13 +768,13 @@
 
             object-fit: contain;
 
-            border-radius: 18px;
+            border-radius: 20px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            กล่องข้อความ
-        ========================================= */
+        ===================================================== */
 
         .content-card {
 
@@ -668,7 +784,8 @@
             margin:
                 30px auto;
 
-            padding: 45px;
+            padding:
+                45px;
 
             background:
                 rgba(255,255,255,0.94);
@@ -676,64 +793,71 @@
             border:
                 5px solid #000000;
 
-            border-radius: 30px;
+            border-radius:
+                30px;
 
             color: #000000;
 
             text-align: left;
 
             box-shadow:
-                12px 12px 0 rgba(0,0,0,0.18);
+                12px 12px 0
+                rgba(0,0,0,0.18);
         }
 
 
         .content-card h2 {
 
+            margin-bottom:
+                25px;
+
             text-align: center;
 
-            font-size: 32px;
-
-            margin-bottom: 25px;
-
             color: #000000;
+
+            font-size:
+                32px;
+
+            font-weight: 900;
         }
 
 
         .content-card p {
 
-            font-size: 20px;
-
-            line-height: 1.9;
-
-            margin: 10px 0;
+            margin:
+                9px 0;
 
             color: #000000;
+
+            font-size:
+                20px;
+
+            line-height:
+                1.9;
         }
 
 
-        /* =========================================
-           หน้า Profile
-        ========================================= */
+        /* =====================================================
+           PROFILE
+        ===================================================== */
 
         .profile-card h2 {
 
-            margin-top: 10px;
-
-            padding-bottom: 10px;
+            padding-bottom:
+                12px;
 
             border-bottom:
                 3px solid #000000;
         }
 
 
-        /* =========================================
-           ผลงาน
-        ========================================= */
+        /* =====================================================
+           WORKS
+        ===================================================== */
 
         .works {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(2, 1fr);
@@ -746,22 +870,31 @@
 
             padding: 20px;
 
-            text-align: center;
-
             background: #ffffff;
 
             border:
                 4px solid #000000;
 
-            border-radius: 25px;
+            border-radius:
+                25px;
+
+            text-align: center;
+
+            box-shadow:
+                5px 5px 0
+                rgba(0,0,0,0.12);
         }
 
 
         .work h2 {
 
-            font-size: 25px;
+            margin-bottom:
+                18px;
 
-            margin-bottom: 18px;
+            color: #000000;
+
+            font-size:
+                25px;
         }
 
 
@@ -778,13 +911,14 @@
             border:
                 3px solid #000000;
 
-            border-radius: 15px;
+            border-radius:
+                18px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            CONTACT
-        ========================================= */
+        ===================================================== */
 
         .contact-card {
 
@@ -794,22 +928,25 @@
 
         .contact-item {
 
-            max-width: 700px;
+            max-width:
+                700px;
 
             margin:
                 25px auto;
 
-            padding: 25px;
+            padding:
+                28px;
 
             background: #ffffff;
 
             border:
                 4px solid #000000;
 
-            border-radius: 25px;
+            border-radius:
+                25px;
 
             transition:
-                0.25s;
+                transform 0.25s ease;
         }
 
 
@@ -822,120 +959,170 @@
 
         .contact-item h2 {
 
-            font-size: 30px;
+            margin-bottom:
+                8px;
 
-            margin-bottom: 8px;
+            color: #000000;
+
+            font-size:
+                30px;
         }
 
 
         .contact-item p {
 
-            font-size: 22px;
+            color: #000000;
+
+            font-size:
+                22px;
 
             font-weight: bold;
 
-            word-break: break-word;
+            word-break:
+                break-word;
         }
 
 
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
+        /* =====================================================
+           RESPONSIVE TABLET
+        ===================================================== */
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
 
             .top-menu {
 
-                gap: 18px;
+                gap: 25px;
 
-                padding: 18px 12px;
             }
 
 
-            .candy {
+            .cloud {
 
-                min-width: 125px;
+                min-width:
+                    145px;
 
-                min-height: 55px;
+                min-height:
+                    62px;
 
-                padding: 10px 20px;
+                font-size:
+                    15px;
 
-                font-size: 14px;
-            }
-
-
-            .page {
-
-                width: 94%;
-            }
-
-
-            .content-card {
-
-                padding: 28px;
-            }
-
-
-            .content-card p {
-
-                font-size: 17px;
+                padding:
+                    15px 22px;
             }
 
 
             .works {
 
-                grid-template-columns: 1fr;
-            }
-
-
-            .work img {
-
-                height: auto;
-            }
-        }
-
-
-        @media (max-width: 480px) {
-
-            .top-menu {
-
-                position: relative;
-
-                flex-direction: column;
-            }
-
-
-            .candy {
-
-                width: 230px;
-            }
-
-
-            .main-title {
-
-                font-size: 60px;
-
-                letter-spacing: 3px;
-            }
-
-
-            .page-title {
-
-                font-size: 42px;
+                grid-template-columns:
+                    1fr;
             }
 
 
             .content-card {
 
-                padding: 20px;
+                padding:
+                    30px;
+            }
+
+
+            .content-card p {
+
+                font-size:
+                    18px;
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .top-menu {
+
+                position:
+                    relative;
+
+                padding:
+                    20px 10px;
+
+                gap:
+                    22px;
+
+                flex-direction:
+                    column;
+            }
+
+
+            .cloud {
+
+                width:
+                    230px;
+
+                min-width:
+                    230px;
+            }
+
+
+            .main-title {
+
+                font-size:
+                    58px;
+
+                letter-spacing:
+                    3px;
+
+                margin-top:
+                    40px;
+            }
+
+
+            .page-title {
+
+                font-size:
+                    43px;
+            }
+
+
+            .content-card {
+
+                width:
+                    96%;
+
+                padding:
+                    22px;
+
+                border-width:
+                    4px;
+            }
+
+
+            .content-card p {
+
+                font-size:
+                    17px;
+
+                line-height:
+                    1.8;
+            }
+
+
+            .main-image {
+
+                width:
+                    94%;
             }
 
 
             .contact-item p {
 
-                font-size: 18px;
+                font-size:
+                    18px;
             }
         }
+
 
     </style>
 
@@ -945,118 +1132,163 @@
 <body>
 
 
-    <!-- =========================================
-         RAINBOW DOTS
-    ========================================= -->
+    <!-- =====================================================
+         RAINBOW RECTANGLES
+    ===================================================== -->
 
-    <div class="rainbow-dots">
+    <div class="rainbow-particles">
 
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
     </div>
 
 
-    <!-- =========================================
-         MENU ด้านบน
-    ========================================= -->
+
+    <!-- =====================================================
+         MENU
+    ===================================================== -->
 
     <nav class="top-menu">
 
+
         <a href="#home"
-           class="candy active"
+           class="cloud active"
            data-page="home">
 
-            <span>PORTFOLIO</span>
+            PORTFOLIO
 
         </a>
 
 
         <a href="#preface"
-           class="candy"
+           class="cloud"
            data-page="preface">
 
-            <span>คำนำ</span>
+            คำนำ
 
         </a>
 
 
         <a href="#profile"
-           class="candy"
+           class="cloud"
            data-page="profile">
 
-            <span>ประวัติส่วนตัว</span>
+            ประวัติส่วนตัว
 
         </a>
 
 
         <a href="#activities"
-           class="candy"
+           class="cloud"
            data-page="activities">
 
-            <span>ผลงานและกิจกรรม</span>
+            ผลงานและกิจกรรม
 
         </a>
 
 
         <a href="#contact"
-           class="candy"
+           class="cloud"
            data-page="contact">
 
-            <span>ช่องทางการติดต่อ</span>
+            ช่องทางการติดต่อ
 
         </a>
+
 
     </nav>
 
 
 
-    <!-- =========================================
-         CONTENT
-    ========================================= -->
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
 
-    <main class="page">
+    <main>
 
 
-        <!-- =====================================
-             HOME
-        ====================================== -->
+        <!-- =================================================
+             หน้าแรก
+        ================================================= -->
 
-        <section id="home"
-                 class="section active">
+        <section
+            id="home"
+            class="section active">
+
 
             <h1 class="main-title">
+
                 PORTFOLIO
+
             </h1>
 
 
-            <!-- รูปภาพตรงกลาง -->
+            <!-- =============================================
+                 รูปภาพตรงกลาง
+            ============================================== -->
 
             <div class="main-image">
 
                 <!--
                     เปลี่ยน profile.jpg
-                    เป็นชื่อรูปของคุณได้ที่นี่
+                    เป็นรูปของคุณ
                 -->
 
-                <img src="images/profile.jpg"
-                     alt="รูปภาพของ Thanatchaporn">
+                <img
+                    src="images/profile.jpg"
+                    alt="รูปภาพของ Thanatchaporn">
 
             </div>
 
 
-            <!-- ข้อมูล -->
+            <!-- =============================================
+                 ข้อมูลส่วนตัว
+            ============================================== -->
 
             <div class="content-card">
+
 
                 <h2>
                     ข้อมูลส่วนตัว
@@ -1064,73 +1296,98 @@
 
 
                 <p>
+
                     <strong>
                         ชื่อ-นามสกุล
                     </strong>
+
                     ธนัชพร เดชฤทธิ์
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         Name
                     </strong>
+
                     Thanatchaporn Detrit
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         ชื่อเล่น
                     </strong>
+
                     เกิ๊ต
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         Nickname
                     </strong>
+
                     Kirt
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         ระดับชั้น
                     </strong>
+
                     มัธยมศึกษาชั้นปีที่ 6/3
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         แผนการเรียน
                     </strong>
+
                     วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         โรงเรียนที่กำลังศึกษาอยู่
-                    </strong><br>
+                    </strong>
 
                     โรงเรียนบ้านบึง
                     "อุตสาหกรรมนุเคราะห์"
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         คณะ-สาขาและมหาวิทยาลัย
                         ที่สนใจศึกษาต่อ
-                    </strong><br>
+                    </strong>
+
+                    <br>
 
                     คณะวิศวกรรมศาสตร์
                     สาขาวิศวกรรมโยธา
                     มหาวิทยาลัยจุฬาลงกรณ์
+
                 </p>
+
 
             </div>
 
@@ -1138,19 +1395,24 @@
 
 
 
-        <!-- =====================================
-             PREFACE
-        ====================================== -->
+        <!-- =================================================
+             คำนำ
+        ================================================= -->
 
-        <section id="preface"
-                 class="section">
+        <section
+            id="preface"
+            class="section">
+
 
             <h1 class="page-title">
+
                 คำนำ
+
             </h1>
 
 
             <div class="content-card">
+
 
                 <p>
 
@@ -1172,113 +1434,153 @@
 
                 </p>
 
+
             </div>
 
         </section>
 
 
 
-        <!-- =====================================
-             PROFILE
-        ====================================== -->
+        <!-- =================================================
+             ประวัติส่วนตัว
+        ================================================= -->
 
-        <section id="profile"
-                 class="section">
+        <section
+            id="profile"
+            class="section">
+
 
             <h1 class="page-title">
+
                 ประวัติส่วนตัว
+
             </h1>
 
 
             <div class="content-card profile-card">
 
+
                 <h2>
+
                     ประวัติส่วนตัว
+
                 </h2>
 
 
                 <p>
+
                     <strong>
                         ชื่อ-นามสกุล
                     </strong>
+
                     ธนัชพร เดชฤทธิ์
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         Name
                     </strong>
+
                     Thanatchaporn Detrit
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         ชื่อเล่น
                     </strong>
+
                     เกิ๊ต
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         Nickname
                     </strong>
+
                     Kirt
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         อายุ
                     </strong>
+
                     17 ปี
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         Age
                     </strong>
+
                     17 years old
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         วันเกิด
                     </strong>
+
                     24/11/2551
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         สัญชาติ
                     </strong>
+
                     ไทย
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         เชื้อชาติ
                     </strong>
+
                     ไทย
+
                 </p>
 
 
                 <p>
+
                     <strong>
                         ศาสนา
                     </strong>
+
                     พุทธ
+
                 </p>
 
 
                 <h2>
+
                     ประวัติการศึกษา
+
                 </h2>
 
 
@@ -1286,7 +1588,9 @@
 
                     <strong>
                         สถานศึกษา
-                    </strong><br>
+                    </strong>
+
+                    <br>
 
                     โรงเรียนบ้านบึง
                     "อุตสาหกรรมนุเคราะห์"
@@ -1298,12 +1602,15 @@
 
                     <strong>
                         แผนการเรียน
-                    </strong><br>
+                    </strong>
+
+                    <br>
 
                     วิทยาศาสตร์-คณิตศาสตร์
                     (MSEP)
 
                 </p>
+
 
             </div>
 
@@ -1311,19 +1618,24 @@
 
 
 
-        <!-- =====================================
-             ACTIVITIES
-        ====================================== -->
+        <!-- =================================================
+             ผลงานและกิจกรรม
+        ================================================= -->
 
-        <section id="activities"
-                 class="section">
+        <section
+            id="activities"
+            class="section">
+
 
             <h1 class="page-title">
+
                 ผลงานและกิจกรรม
+
             </h1>
 
 
             <div class="content-card">
+
 
                 <div class="works">
 
@@ -1396,15 +1708,19 @@
 
 
 
-        <!-- =====================================
-             CONTACT
-        ====================================== -->
+        <!-- =================================================
+             ช่องทางการติดต่อ
+        ================================================= -->
 
-        <section id="contact"
-                 class="section">
+        <section
+            id="contact"
+            class="section">
+
 
             <h1 class="page-title">
+
                 ช่องทางการติดต่อ
+
             </h1>
 
 
@@ -1459,14 +1775,16 @@
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================================= -->
+    ===================================================== -->
 
     <script>
 
+
         const buttons =
-            document.querySelectorAll(".candy");
+            document.querySelectorAll(".cloud");
+
 
         const sections =
             document.querySelectorAll(".section");
@@ -1474,72 +1792,112 @@
 
         function showPage(pageID) {
 
-            sections.forEach(section => {
 
-                section.classList.remove("active");
+            /* ซ่อนทุกหน้า */
 
-            });
+            sections.forEach(
+                section => {
 
-
-            const target =
-                document.getElementById(pageID);
-
-            if (target) {
-
-                target.classList.add("active");
-
-            }
-
-
-            buttons.forEach(button => {
-
-                button.classList.remove("active");
-
-                if (
-                    button.dataset.page === pageID
-                ) {
-
-                    button.classList.add("active");
-
-                }
-
-            });
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-
-        buttons.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                function(event) {
-
-                    event.preventDefault();
-
-                    const page =
-                        this.dataset.page;
-
-                    showPage(page);
-
-                    history.pushState(
-                        null,
-                        "",
-                        "#" + page
+                    section.classList.remove(
+                        "active"
                     );
 
                 }
             );
 
-        });
+
+            /* แสดงหน้าที่เลือก */
+
+            const target =
+                document.getElementById(pageID);
 
 
-        /* เปิดหน้าตาม URL */
+            if (target) {
+
+                target.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            /* เปลี่ยนปุ่มที่ active */
+
+            buttons.forEach(
+                button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        button.dataset.page
+                        === pageID
+                    ) {
+
+                        button.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* เลื่อนกลับด้านบน */
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* =================================================
+           คลิกเมนู
+        ================================================= */
+
+        buttons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+
+                        const page =
+                            this.dataset.page;
+
+
+                        showPage(page);
+
+
+                        history.pushState(
+                            null,
+                            "",
+                            "#" + page
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =================================================
+           เปิดหน้าตาม URL
+        ================================================= */
 
         const firstPage =
             location.hash.substring(1);
@@ -1555,7 +1913,10 @@
         }
 
 
-        /* รองรับปุ่ม Back / Forward */
+
+        /* =================================================
+           ปุ่ม Back / Forward ของ Browser
+        ================================================= */
 
         window.addEventListener(
             "popstate",
@@ -1565,13 +1926,16 @@
                     location.hash.substring(1)
                     || "home";
 
+
                 showPage(page);
 
             }
         );
 
+
     </script>
 
 
 </body>
+
 </html>
