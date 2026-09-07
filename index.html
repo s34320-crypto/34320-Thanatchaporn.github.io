@@ -1,31 +1,1577 @@
-<!-- นี่คือโครงสร้างหน้าเว็บทั้งหมด -->
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<title>หน้าแนะนําตัวของฉัน</title>
-<style>
-body {
-background-color: #FFCCCC; color: #333;
-text-align: center; padding: 50px;
+    <meta charset="UTF-8">
 
-}
-.card {
-background: white; border-radius: 0px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-}
-h1 { color: #2c3e50; }
-p { font-size: 18px; line-height: 1.6; }
-</style>
+    <title>Portfolio - Thanatchaporn Detrit</title>
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                "Noto Sans Thai",
+                "Tahoma",
+                Arial,
+                sans-serif;
+
+            color: #000000;
+
+            overflow-x: hidden;
+
+            /* พื้นหลัง 3 สีแนวเฉียง */
+            background:
+                repeating-linear-gradient(
+                    135deg,
+
+                    #FFCCCC 0px,
+                    #FFCCCC 180px,
+
+                    #DDA0DD 180px,
+                    #DDA0DD 360px,
+
+                    #F5DEB3 360px,
+                    #F5DEB3 540px
+                );
+        }
+
+
+        /* =========================================
+           RAINBOW DOTS
+        ========================================= */
+
+        .rainbow-dots {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            overflow: hidden;
+        }
+
+
+        .rainbow-dots span {
+
+            position: absolute;
+
+            width: 13px;
+            height: 13px;
+
+            border-radius: 50%;
+
+            opacity: 0.85;
+
+            animation:
+                floating 5s ease-in-out infinite;
+        }
+
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.25);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+        /* =========================================
+           กำหนดตำแหน่งเม็ดสี
+        ========================================= */
+
+        .rainbow-dots span:nth-child(1) {
+            left: 2%;
+            top: 8%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(2) {
+            left: 7%;
+            top: 25%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(3) {
+            left: 12%;
+            top: 45%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(4) {
+            left: 18%;
+            top: 15%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(5) {
+            left: 25%;
+            top: 35%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(6) {
+            left: 32%;
+            top: 10%;
+            background: indigo;
+        }
+
+        .rainbow-dots span:nth-child(7) {
+            left: 40%;
+            top: 25%;
+            background: violet;
+        }
+
+        .rainbow-dots span:nth-child(8) {
+            left: 48%;
+            top: 8%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(9) {
+            left: 56%;
+            top: 30%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(10) {
+            left: 64%;
+            top: 12%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(11) {
+            left: 72%;
+            top: 35%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(12) {
+            left: 80%;
+            top: 10%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(13) {
+            left: 88%;
+            top: 28%;
+            background: violet;
+        }
+
+        .rainbow-dots span:nth-child(14) {
+            left: 96%;
+            top: 15%;
+            background: pink;
+        }
+
+        .rainbow-dots span:nth-child(15) {
+            left: 4%;
+            top: 65%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(16) {
+            left: 10%;
+            top: 85%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(17) {
+            left: 18%;
+            top: 70%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(18) {
+            left: 27%;
+            top: 90%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(19) {
+            left: 35%;
+            top: 65%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(20) {
+            left: 43%;
+            top: 82%;
+            background: violet;
+        }
+
+        .rainbow-dots span:nth-child(21) {
+            left: 51%;
+            top: 68%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(22) {
+            left: 60%;
+            top: 90%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(23) {
+            left: 68%;
+            top: 72%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(24) {
+            left: 76%;
+            top: 88%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(25) {
+            left: 85%;
+            top: 65%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(26) {
+            left: 94%;
+            top: 82%;
+            background: violet;
+        }
+
+        .rainbow-dots span:nth-child(27) {
+            left: 5%;
+            top: 50%;
+            background: pink;
+        }
+
+        .rainbow-dots span:nth-child(28) {
+            left: 23%;
+            top: 55%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(29) {
+            left: 38%;
+            top: 48%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(30) {
+            left: 53%;
+            top: 52%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(31) {
+            left: 69%;
+            top: 48%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(32) {
+            left: 84%;
+            top: 52%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(33) {
+            left: 98%;
+            top: 45%;
+            background: violet;
+        }
+
+        .rainbow-dots span:nth-child(34) {
+            left: 15%;
+            top: 5%;
+            background: pink;
+        }
+
+        .rainbow-dots span:nth-child(35) {
+            left: 45%;
+            top: 42%;
+            background: red;
+        }
+
+        .rainbow-dots span:nth-child(36) {
+            left: 75%;
+            top: 42%;
+            background: orange;
+        }
+
+        .rainbow-dots span:nth-child(37) {
+            left: 30%;
+            top: 78%;
+            background: yellow;
+        }
+
+        .rainbow-dots span:nth-child(38) {
+            left: 58%;
+            top: 60%;
+            background: green;
+        }
+
+        .rainbow-dots span:nth-child(39) {
+            left: 91%;
+            top: 58%;
+            background: blue;
+        }
+
+        .rainbow-dots span:nth-child(40) {
+            left: 2%;
+            top: 92%;
+            background: violet;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .top-menu {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            width: 100%;
+
+            min-height: 110px;
+
+            padding: 20px 30px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            background:
+                rgba(255,255,255,0.25);
+
+            backdrop-filter:
+                blur(8px);
+        }
+
+
+        /* =========================================
+           ลูกอม
+        ========================================= */
+
+        .candy {
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-width: 150px;
+
+            min-height: 65px;
+
+            padding: 12px 28px;
+
+            background: #ffffff;
+
+            border: 4px solid #000000;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            color: #000000;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 7px 0 rgba(0,0,0,0.25);
+
+            cursor: pointer;
+
+            transition:
+                0.25s;
+        }
+
+
+        /* ปลายห่อลูกอม */
+
+        .candy::before,
+        .candy::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 23px;
+
+            height: 35px;
+
+            background: #ffffff;
+
+            border: 4px solid #000000;
+
+            z-index: -1;
+        }
+
+
+        .candy::before {
+
+            left: -18px;
+
+            transform:
+                rotate(30deg)
+                skewX(-20deg);
+        }
+
+
+        .candy::after {
+
+            right: -18px;
+
+            transform:
+                rotate(-30deg)
+                skewX(20deg);
+        }
+
+
+        .candy:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.05);
+
+            background: #FFF0F5;
+
+            box-shadow:
+                0 12px 0 rgba(0,0,0,0.25);
+        }
+
+
+        .candy.active {
+
+            background: #F5DEB3;
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: min(1100px, 92%);
+
+            margin:
+                40px auto 100px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           แต่ละ Section
+        ========================================= */
+
+        .section {
+
+            display: none;
+
+            min-height:
+                calc(100vh - 150px);
+
+            padding:
+                50px 0 80px;
+
+            animation:
+                fadeIn 0.5s ease;
+        }
+
+
+        .section.active {
+
+            display: block;
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .main-title {
+
+            font-size:
+                clamp(65px, 11vw, 150px);
+
+            font-weight: 900;
+
+            letter-spacing: 8px;
+
+            color: #000000;
+
+            margin:
+                50px 0 40px;
+
+            text-shadow:
+                5px 5px 0 #ffffff,
+                9px 9px 0 rgba(0,0,0,0.15);
+        }
+
+
+        .page-title {
+
+            display: inline-block;
+
+            font-size:
+                clamp(45px, 7vw, 80px);
+
+            font-weight: 900;
+
+            color: #000000;
+
+            margin:
+                30px 0 45px;
+
+            text-shadow:
+                4px 4px 0 #ffffff,
+                7px 7px 0 rgba(0,0,0,0.15);
+        }
+
+
+        /* =========================================
+           รูปหน้าแรก
+        ========================================= */
+
+        .main-image {
+
+            width:
+                min(520px, 90%);
+
+            margin:
+                0 auto 40px;
+
+            padding: 15px;
+
+            background: #ffffff;
+
+            border:
+                5px solid #000000;
+
+            border-radius: 30px;
+
+            box-shadow:
+                12px 12px 0 rgba(0,0,0,0.2);
+
+            transition:
+                0.3s;
+        }
+
+
+        .main-image:hover {
+
+            transform:
+                scale(1.03)
+                rotate(-1deg);
+        }
+
+
+        .main-image img {
+
+            display: block;
+
+            width: 100%;
+
+            max-height: 600px;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+        }
+
+
+        /* =========================================
+           กล่องข้อความ
+        ========================================= */
+
+        .content-card {
+
+            width:
+                min(900px, 95%);
+
+            margin:
+                30px auto;
+
+            padding: 45px;
+
+            background:
+                rgba(255,255,255,0.94);
+
+            border:
+                5px solid #000000;
+
+            border-radius: 30px;
+
+            color: #000000;
+
+            text-align: left;
+
+            box-shadow:
+                12px 12px 0 rgba(0,0,0,0.18);
+        }
+
+
+        .content-card h2 {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+
+            color: #000000;
+        }
+
+
+        .content-card p {
+
+            font-size: 20px;
+
+            line-height: 1.9;
+
+            margin: 10px 0;
+
+            color: #000000;
+        }
+
+
+        /* =========================================
+           หน้า Profile
+        ========================================= */
+
+        .profile-card h2 {
+
+            margin-top: 10px;
+
+            padding-bottom: 10px;
+
+            border-bottom:
+                3px solid #000000;
+        }
+
+
+        /* =========================================
+           ผลงาน
+        ========================================= */
+
+        .works {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 35px;
+        }
+
+
+        .work {
+
+            padding: 20px;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            border:
+                4px solid #000000;
+
+            border-radius: 25px;
+        }
+
+
+        .work h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .work img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+            border:
+                3px solid #000000;
+
+            border-radius: 15px;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-card {
+
+            text-align: center;
+        }
+
+
+        .contact-item {
+
+            max-width: 700px;
+
+            margin:
+                25px auto;
+
+            padding: 25px;
+
+            background: #ffffff;
+
+            border:
+                4px solid #000000;
+
+            border-radius: 25px;
+
+            transition:
+                0.25s;
+        }
+
+
+        .contact-item:hover {
+
+            transform:
+                scale(1.03);
+        }
+
+
+        .contact-item h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .contact-item p {
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .top-menu {
+
+                gap: 18px;
+
+                padding: 18px 12px;
+            }
+
+
+            .candy {
+
+                min-width: 125px;
+
+                min-height: 55px;
+
+                padding: 10px 20px;
+
+                font-size: 14px;
+            }
+
+
+            .page {
+
+                width: 94%;
+            }
+
+
+            .content-card {
+
+                padding: 28px;
+            }
+
+
+            .content-card p {
+
+                font-size: 17px;
+            }
+
+
+            .works {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .work img {
+
+                height: auto;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .top-menu {
+
+                position: relative;
+
+                flex-direction: column;
+            }
+
+
+            .candy {
+
+                width: 230px;
+            }
+
+
+            .main-title {
+
+                font-size: 60px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .page-title {
+
+                font-size: 42px;
+            }
+
+
+            .content-card {
+
+                padding: 20px;
+            }
+
+
+            .contact-item p {
+
+                font-size: 18px;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีค่ะ! ฉันชื่อ <strong>ธนัชพร เดชฤทธิ์ (Thanatchaporn Detrit)</strong></p>
-<p>ขณะนี้กําลังศึกษา/สนใจด้าน Engineering</p>
-<p>นี่คือเว็บไซต์แรกของฉันที่โฮสต์บน GitHub Pages!</p>
-</div>
+
+
+    <!-- =========================================
+         RAINBOW DOTS
+    ========================================= -->
+
+    <div class="rainbow-dots">
+
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span>
+
+    </div>
+
+
+    <!-- =========================================
+         MENU ด้านบน
+    ========================================= -->
+
+    <nav class="top-menu">
+
+        <a href="#home"
+           class="candy active"
+           data-page="home">
+
+            <span>PORTFOLIO</span>
+
+        </a>
+
+
+        <a href="#preface"
+           class="candy"
+           data-page="preface">
+
+            <span>คำนำ</span>
+
+        </a>
+
+
+        <a href="#profile"
+           class="candy"
+           data-page="profile">
+
+            <span>ประวัติส่วนตัว</span>
+
+        </a>
+
+
+        <a href="#activities"
+           class="candy"
+           data-page="activities">
+
+            <span>ผลงานและกิจกรรม</span>
+
+        </a>
+
+
+        <a href="#contact"
+           class="candy"
+           data-page="contact">
+
+            <span>ช่องทางการติดต่อ</span>
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         CONTENT
+    ========================================= -->
+
+    <main class="page">
+
+
+        <!-- =====================================
+             HOME
+        ====================================== -->
+
+        <section id="home"
+                 class="section active">
+
+            <h1 class="main-title">
+                PORTFOLIO
+            </h1>
+
+
+            <!-- รูปภาพตรงกลาง -->
+
+            <div class="main-image">
+
+                <!--
+                    เปลี่ยน profile.jpg
+                    เป็นชื่อรูปของคุณได้ที่นี่
+                -->
+
+                <img src="images/profile.jpg"
+                     alt="รูปภาพของ Thanatchaporn">
+
+            </div>
+
+
+            <!-- ข้อมูล -->
+
+            <div class="content-card">
+
+                <h2>
+                    ข้อมูลส่วนตัว
+                </h2>
+
+
+                <p>
+                    <strong>
+                        ชื่อ-นามสกุล
+                    </strong>
+                    ธนัชพร เดชฤทธิ์
+                </p>
+
+
+                <p>
+                    <strong>
+                        Name
+                    </strong>
+                    Thanatchaporn Detrit
+                </p>
+
+
+                <p>
+                    <strong>
+                        ชื่อเล่น
+                    </strong>
+                    เกิ๊ต
+                </p>
+
+
+                <p>
+                    <strong>
+                        Nickname
+                    </strong>
+                    Kirt
+                </p>
+
+
+                <p>
+                    <strong>
+                        ระดับชั้น
+                    </strong>
+                    มัธยมศึกษาชั้นปีที่ 6/3
+                </p>
+
+
+                <p>
+                    <strong>
+                        แผนการเรียน
+                    </strong>
+                    วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
+                </p>
+
+
+                <p>
+                    <strong>
+                        โรงเรียนที่กำลังศึกษาอยู่
+                    </strong><br>
+
+                    โรงเรียนบ้านบึง
+                    "อุตสาหกรรมนุเคราะห์"
+                </p>
+
+
+                <p>
+                    <strong>
+                        คณะ-สาขาและมหาวิทยาลัย
+                        ที่สนใจศึกษาต่อ
+                    </strong><br>
+
+                    คณะวิศวกรรมศาสตร์
+                    สาขาวิศวกรรมโยธา
+                    มหาวิทยาลัยจุฬาลงกรณ์
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PREFACE
+        ====================================== -->
+
+        <section id="preface"
+                 class="section">
+
+            <h1 class="page-title">
+                คำนำ
+            </h1>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    แฟ้มสะสมผลงาน (Portfolio) เล่มนี้
+                    จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูล
+                    เกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ
+                    ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า
+                    โดยเฉพาะความสนใจและความมุ่งมั่น
+                    ที่มีต่อการศึกษาต่อ
+
+                </p>
+
+
+                <p>
+
+                    ภายในแฟ้มสะสมผลงานเล่มนี้
+                    ประกอบด้วยประวัติส่วนตัว ผลการเรียน
+                    กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PROFILE
+        ====================================== -->
+
+        <section id="profile"
+                 class="section">
+
+            <h1 class="page-title">
+                ประวัติส่วนตัว
+            </h1>
+
+
+            <div class="content-card profile-card">
+
+                <h2>
+                    ประวัติส่วนตัว
+                </h2>
+
+
+                <p>
+                    <strong>
+                        ชื่อ-นามสกุล
+                    </strong>
+                    ธนัชพร เดชฤทธิ์
+                </p>
+
+
+                <p>
+                    <strong>
+                        Name
+                    </strong>
+                    Thanatchaporn Detrit
+                </p>
+
+
+                <p>
+                    <strong>
+                        ชื่อเล่น
+                    </strong>
+                    เกิ๊ต
+                </p>
+
+
+                <p>
+                    <strong>
+                        Nickname
+                    </strong>
+                    Kirt
+                </p>
+
+
+                <p>
+                    <strong>
+                        อายุ
+                    </strong>
+                    17 ปี
+                </p>
+
+
+                <p>
+                    <strong>
+                        Age
+                    </strong>
+                    17 years old
+                </p>
+
+
+                <p>
+                    <strong>
+                        วันเกิด
+                    </strong>
+                    24/11/2551
+                </p>
+
+
+                <p>
+                    <strong>
+                        สัญชาติ
+                    </strong>
+                    ไทย
+                </p>
+
+
+                <p>
+                    <strong>
+                        เชื้อชาติ
+                    </strong>
+                    ไทย
+                </p>
+
+
+                <p>
+                    <strong>
+                        ศาสนา
+                    </strong>
+                    พุทธ
+                </p>
+
+
+                <h2>
+                    ประวัติการศึกษา
+                </h2>
+
+
+                <p>
+
+                    <strong>
+                        สถานศึกษา
+                    </strong><br>
+
+                    โรงเรียนบ้านบึง
+                    "อุตสาหกรรมนุเคราะห์"
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        แผนการเรียน
+                    </strong><br>
+
+                    วิทยาศาสตร์-คณิตศาสตร์
+                    (MSEP)
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ACTIVITIES
+        ====================================== -->
+
+        <section id="activities"
+                 class="section">
+
+            <h1 class="page-title">
+                ผลงานและกิจกรรม
+            </h1>
+
+
+            <div class="content-card">
+
+                <div class="works">
+
+
+                    <!-- รูปที่ 1 -->
+
+                    <div class="work">
+
+                        <h2>
+                            ผลงานที่ 1
+                        </h2>
+
+                        <img
+                            src="images/activity1.jpg"
+                            alt="ผลงานที่ 1">
+
+                    </div>
+
+
+                    <!-- รูปที่ 2 -->
+
+                    <div class="work">
+
+                        <h2>
+                            ผลงานที่ 2
+                        </h2>
+
+                        <img
+                            src="images/activity2.jpg"
+                            alt="ผลงานที่ 2">
+
+                    </div>
+
+
+                    <!-- รูปที่ 3 -->
+
+                    <div class="work">
+
+                        <h2>
+                            ผลงานที่ 3
+                        </h2>
+
+                        <img
+                            src="images/activity3.jpg"
+                            alt="ผลงานที่ 3">
+
+                    </div>
+
+
+                    <!-- รูปที่ 4 -->
+
+                    <div class="work">
+
+                        <h2>
+                            ผลงานที่ 4
+                        </h2>
+
+                        <img
+                            src="images/activity4.jpg"
+                            alt="ผลงานที่ 4">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CONTACT
+        ====================================== -->
+
+        <section id="contact"
+                 class="section">
+
+            <h1 class="page-title">
+                ช่องทางการติดต่อ
+            </h1>
+
+
+            <div class="content-card contact-card">
+
+
+                <div class="contact-item">
+
+                    <h2>
+                        Gmail
+                    </h2>
+
+                    <p>
+                        kirtdetrit2008@gmail.com
+                    </p>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <h2>
+                        Tel
+                    </h2>
+
+                    <p>
+                        0803168477
+                    </p>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <h2>
+                        IG
+                    </h2>
+
+                    <p>
+                        ktllysq
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        const buttons =
+            document.querySelectorAll(".candy");
+
+        const sections =
+            document.querySelectorAll(".section");
+
+
+        function showPage(pageID) {
+
+            sections.forEach(section => {
+
+                section.classList.remove("active");
+
+            });
+
+
+            const target =
+                document.getElementById(pageID);
+
+            if (target) {
+
+                target.classList.add("active");
+
+            }
+
+
+            buttons.forEach(button => {
+
+                button.classList.remove("active");
+
+                if (
+                    button.dataset.page === pageID
+                ) {
+
+                    button.classList.add("active");
+
+                }
+
+            });
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    const page =
+                        this.dataset.page;
+
+                    showPage(page);
+
+                    history.pushState(
+                        null,
+                        "",
+                        "#" + page
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* เปิดหน้าตาม URL */
+
+        const firstPage =
+            location.hash.substring(1);
+
+
+        if (
+            firstPage &&
+            document.getElementById(firstPage)
+        ) {
+
+            showPage(firstPage);
+
+        }
+
+
+        /* รองรับปุ่ม Back / Forward */
+
+        window.addEventListener(
+            "popstate",
+            function() {
+
+                const page =
+                    location.hash.substring(1)
+                    || "home";
+
+                showPage(page);
+
+            }
+        );
+
+    </script>
+
+
 </body>
 </html>
