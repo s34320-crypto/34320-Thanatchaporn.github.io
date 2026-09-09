@@ -191,7 +191,7 @@ body {
 
 
 /* =========================
-   MENU ด้านบน
+   MENU
 ========================= */
 
 .navbar {
@@ -355,7 +355,7 @@ section {
 .computer-frame {
     width: min(750px, 90%);
 
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 
     padding: 15px;
 
@@ -379,6 +379,54 @@ section {
     border-radius: 12px;
 
     object-fit: contain;
+}
+
+
+/* =========================
+   ปุ่มเลือกรูป
+========================= */
+
+.image-upload {
+    width: min(750px, 90%);
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.image-upload label {
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    background: #20B2AA;
+
+    color: #FFFFFF;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 5px 15px rgba(32,178,170,0.3);
+}
+
+.image-upload label:hover {
+    background: #40E0D0;
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+.image-upload input {
+    display: none;
+}
+
+.upload-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333333;
 }
 
 
@@ -453,7 +501,6 @@ section {
 
 /* ==================================================
    ผลงานและกิจกรรม
-   จำนวน 3 รูป
 ================================================== */
 
 .activities-grid {
@@ -526,6 +573,43 @@ section {
 
     box-shadow:
         0 0 20px #E0FFFF;
+}
+
+
+/* =========================
+   ปุ่มเลือกรูปผลงาน
+========================= */
+
+.activity-upload {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.activity-upload label {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    background: #20B2AA;
+
+    color: #FFFFFF;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.activity-upload label:hover {
+    background: #40E0D0;
+    color: #000000;
+}
+
+.activity-upload input {
+    display: none;
 }
 
 
@@ -665,10 +749,7 @@ footer {
 @media (max-width: 900px) {
 
     .activities-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
@@ -822,9 +903,31 @@ footer {
     <div class="computer-frame">
 
         <img
-            src="images/computer.png"
+            id="computerImage"
+            src=""
             alt="รูปภาพหน้าจอคอมพิวเตอร์"
         >
+
+    </div>
+
+
+    <!-- ปุ่มเลือกรูปหน้าปก -->
+
+    <div class="image-upload">
+
+        <label for="computerUpload">
+            📷 เลือกรูปหน้าปก
+        </label>
+
+        <input
+            type="file"
+            id="computerUpload"
+            accept="image/*"
+        >
+
+        <p class="upload-text">
+            เลือกรูปภาพจากเครื่องของคุณ
+        </p>
 
     </div>
 
@@ -999,10 +1102,9 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      ผลงานและกิจกรรม
-     ⭐ มีทั้งหมด 3 รูป
-====================================================== -->
+========================= -->
 
 <section id="activities">
 
@@ -1017,14 +1119,13 @@ footer {
     <div class="activities-grid">
 
 
-        <!-- =========================
-             รูปผลงานที่ 1
-        ========================== -->
+        <!-- ผลงานที่ 1 -->
 
         <div class="activity-card">
 
             <img
-                src="images/activity1.jpg"
+                id="activityImage1"
+                src=""
                 alt="ผลงานและกิจกรรมที่ 1"
             >
 
@@ -1032,17 +1133,30 @@ footer {
                 ผลงานและกิจกรรมที่ 1
             </h3>
 
+            <div class="activity-upload">
+
+                <label for="activityUpload1">
+                    📷 เลือกรูป
+                </label>
+
+                <input
+                    type="file"
+                    id="activityUpload1"
+                    accept="image/*"
+                >
+
+            </div>
+
         </div>
 
 
-        <!-- =========================
-             รูปผลงานที่ 2
-        ========================== -->
+        <!-- ผลงานที่ 2 -->
 
         <div class="activity-card">
 
             <img
-                src="images/activity2.jpg"
+                id="activityImage2"
+                src=""
                 alt="ผลงานและกิจกรรมที่ 2"
             >
 
@@ -1050,23 +1164,50 @@ footer {
                 ผลงานและกิจกรรมที่ 2
             </h3>
 
+            <div class="activity-upload">
+
+                <label for="activityUpload2">
+                    📷 เลือกรูป
+                </label>
+
+                <input
+                    type="file"
+                    id="activityUpload2"
+                    accept="image/*"
+                >
+
+            </div>
+
         </div>
 
 
-        <!-- =========================
-             รูปผลงานที่ 3
-        ========================== -->
+        <!-- ผลงานที่ 3 -->
 
         <div class="activity-card">
 
             <img
-                src="images/activity3.jpg"
+                id="activityImage3"
+                src=""
                 alt="ผลงานและกิจกรรมที่ 3"
             >
 
             <h3>
                 ผลงานและกิจกรรมที่ 3
             </h3>
+
+            <div class="activity-upload">
+
+                <label for="activityUpload3">
+                    📷 เลือกรูป
+                </label>
+
+                <input
+                    type="file"
+                    id="activityUpload3"
+                    accept="image/*"
+                >
+
+            </div>
 
         </div>
 
@@ -1149,6 +1290,86 @@ footer {
     </p>
 
 </footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+     ระบบเลือกรูปจากเครื่อง
+========================= -->
+
+<script>
+
+/* =========================
+   ฟังก์ชันแสดงรูป
+========================= */
+
+function setupImageUpload(inputId, imageId) {
+
+    const input = document.getElementById(inputId);
+    const image = document.getElementById(imageId);
+
+    input.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+        if (!file.type.startsWith("image/")) {
+            alert("กรุณาเลือกไฟล์รูปภาพเท่านั้น");
+            return;
+        }
+
+        const imageURL = URL.createObjectURL(file);
+
+        image.src = imageURL;
+
+    });
+
+}
+
+
+/* =========================
+   รูปหน้าปก
+========================= */
+
+setupImageUpload(
+    "computerUpload",
+    "computerImage"
+);
+
+
+/* =========================
+   ผลงานรูปที่ 1
+========================= */
+
+setupImageUpload(
+    "activityUpload1",
+    "activityImage1"
+);
+
+
+/* =========================
+   ผลงานรูปที่ 2
+========================= */
+
+setupImageUpload(
+    "activityUpload2",
+    "activityImage2"
+);
+
+
+/* =========================
+   ผลงานรูปที่ 3
+========================= */
+
+setupImageUpload(
+    "activityUpload3",
+    "activityImage3"
+);
+
+</script>
 
 
 </body>
