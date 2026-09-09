@@ -1294,36 +1294,175 @@ footer {
 
 <!-- =========================
      JAVASCRIPT
-     ระบบเลือกรูปจากเครื่อง
+     ระบบเลือกรูป + บันทึกรูป
 ========================= -->
 
 <script>
 
+/*
+========================================
+   ระบบจัดการรูปภาพ Portfolio
+========================================
+
+   รูปภาพจะถูกเก็บไว้ใน localStorage
+   ทำให้:
+   - รีเฟรชหน้าแล้วรูปไม่หาย
+   - ปิดแล้วเปิดหน้าเว็บใหม่ รูปยังอยู่
+   - เปลี่ยนรูปใหม่ได้
+*/
+
+
 /* =========================
-   ฟังก์ชันแสดงรูป
+   KEY สำหรับเก็บรูป
 ========================= */
 
-function setupImageUpload(inputId, imageId) {
+const STORAGE_KEYS = {
+
+    computer: "portfolio_computer_image",
+
+    activity1: "portfolio_activity_image_1",
+
+    activity2: "portfolio_activity_image_2",
+
+    activity3: "portfolio_activity_image_3"
+
+};
+
+
+/* =========================
+   ฟังก์ชันบันทึกรูป
+========================= */
+
+function saveImage(key, imageData) {
+
+    try {
+
+        localStorage.setItem(key, imageData);
+
+    } catch (error) {
+
+        console.error("ไม่สามารถบันทึกรูปได้:", error);
+
+        alert(
+            "ไม่สามารถบันทึกรูปได้ อาจเป็นเพราะรูปมีขนาดใหญ่เกินไป"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   ฟังก์ชันโหลดรูป
+========================= */
+
+function loadSavedImage(key, imageId) {
+
+    const savedImage = localStorage.getItem(key);
+
+    const image = document.getElementById(imageId);
+
+    if (savedImage && image) {
+
+        image.src = savedImage;
+
+    }
+
+}
+
+
+/* =========================
+   ตั้งค่าระบบอัปโหลดรูป
+========================= */
+
+function setupImageUpload(inputId, imageId, storageKey) {
 
     const input = document.getElementById(inputId);
+
     const image = document.getElementById(imageId);
+
+
+    if (!input || !image) {
+
+        console.error(
+            "ไม่พบ element:",
+            inputId,
+            imageId
+        );
+
+        return;
+
+    }
+
 
     input.addEventListener("change", function () {
 
         const file = this.files[0];
 
+
+        /* ไม่มีไฟล์ */
+
         if (!file) {
+
             return;
+
         }
+
+
+        /* ตรวจสอบว่าเป็นรูปหรือไม่ */
 
         if (!file.type.startsWith("image/")) {
+
             alert("กรุณาเลือกไฟล์รูปภาพเท่านั้น");
+
+            this.value = "";
+
             return;
+
         }
 
-        const imageURL = URL.createObjectURL(file);
 
-        image.src = imageURL;
+        /*
+        ========================================
+           อ่านไฟล์เป็น Data URL
+        ========================================
+        */
+
+        const reader = new FileReader();
+
+
+        reader.onload = function (event) {
+
+            const imageData = event.target.result;
+
+
+            /*
+            แสดงรูปทันที
+            */
+
+            image.src = imageData;
+
+
+            /*
+            บันทึกรูปลง localStorage
+            */
+
+            saveImage(
+                storageKey,
+                imageData
+            );
+
+        };
+
+
+        reader.onerror = function () {
+
+            alert("เกิดข้อผิดพลาดในการอ่านรูปภาพ");
+
+        };
+
+
+        reader.readAsDataURL(file);
 
     });
 
@@ -1331,41 +1470,70 @@ function setupImageUpload(inputId, imageId) {
 
 
 /* =========================
-   รูปหน้าปก
+   ตั้งค่ารูปทั้งหมด
 ========================= */
+
+
+/* รูปหน้าปก */
 
 setupImageUpload(
     "computerUpload",
+    "computerImage",
+    STORAGE_KEYS.computer
+);
+
+
+/* รูปกิจกรรมที่ 1 */
+
+setupImageUpload(
+    "activityUpload1",
+    "activityImage1",
+    STORAGE_KEYS.activity1
+);
+
+
+/* รูปกิจกรรมที่ 2 */
+
+setupImageUpload(
+    "activityUpload2",
+    "activityImage2",
+    STORAGE_KEYS.activity2
+);
+
+
+/* รูปกิจกรรมที่ 3 */
+
+setupImageUpload(
+    "activityUpload3",
+    "activityImage3",
+    STORAGE_KEYS.activity3
+);
+
+
+/* =========================
+   โหลดรูปที่เคยบันทึกไว้
+========================= */
+
+loadSavedImage(
+    STORAGE_KEYS.computer,
     "computerImage"
 );
 
 
-/* =========================
-   ผลงานรูปที่ 1
-========================= */
-
-setupImageUpload(
-    "activityUpload1",
+loadSavedImage(
+    STORAGE_KEYS.activity1,
     "activityImage1"
 );
 
 
-/* =========================
-   ผลงานรูปที่ 2
-========================= */
-
-setupImageUpload(
-    "activityUpload2",
+loadSavedImage(
+    STORAGE_KEYS.activity2,
     "activityImage2"
 );
 
 
-/* =========================
-   ผลงานรูปที่ 3
-========================= */
-
-setupImageUpload(
-    "activityUpload3",
+loadSavedImage(
+    STORAGE_KEYS.activity3,
     "activityImage3"
 );
 
