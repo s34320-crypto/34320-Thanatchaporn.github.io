@@ -1,1425 +1,1423 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | Thanatchaporn Detrit</title>
+<title>Portfolio | Thanatchaporn Detrit</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
+<style>
 
-        /* =========================================
-           RESET
-        ========================================= */
+/* ==============================
+   RESET
+============================== */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Kanit', sans-serif;
-            color: #000000;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
+body {
+    font-family: 'Kanit', sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
 
 
-        /* =========================================
-           BACKGROUND
-        ========================================= */
+/* ==============================
+   BACKGROUND
+============================== */
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -10;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -10;
 
-            background:
-                linear-gradient(
-                    to bottom,
+    background:
+        linear-gradient(
+            to bottom,
 
-                    #FFFFFF 0%,
-                    #FFFFFF 10%,
+            #FFFFFF 0%,
+            #FFFFFF 10%,
 
-                    #40E0D0 10%,
-                    #FFFFFF 22%,
+            #40E0D0 10%,
+            #FFFFFF 22%,
 
-                    #40E0D0 22%,
-                    #20B2AA 34%,
+            #40E0D0 22%,
+            #20B2AA 34%,
 
-                    #40E0D0 34%,
-                    #FFFFFF 46%,
+            #40E0D0 34%,
+            #FFFFFF 46%,
 
-                    #40E0D0 46%,
-                    #20B2AA 58%,
+            #40E0D0 46%,
+            #20B2AA 58%,
 
-                    #40E0D0 58%,
-                    #FFFFFF 70%,
-
-                    #40E0D0 70%,
-                    #20B2AA 82%,
+            #40E0D0 58%,
+            #FFFFFF 70%,
 
-                    #40E0D0 82%,
-                    #FFFFFF 94%,
+            #40E0D0 70%,
+            #20B2AA 82%,
 
-                    #40E0D0 94%,
-                    #20B2AA 100%
-                );
-        }
+            #40E0D0 82%,
+            #FFFFFF 94%,
 
-
-        /* เลเยอร์พื้นหลัง */
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -9;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.45),
-                    rgba(64,224,208,0.20),
-                    rgba(32,178,170,0.30),
-                    rgba(255,255,255,0.40)
-                );
-
-            background-size: 400% 400%;
-
-            animation: backgroundMove 15s ease infinite;
-        }
-
-        @keyframes backgroundMove {
-
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-
-        }
-
-
-        /* =========================================
-           จุดตกแต่ง
-        ========================================= */
-
-        .decorations {
-            position: fixed;
-            inset: 0;
-            z-index: -5;
-            pointer-events: none;
-        }
-
-        .dot {
-            position: absolute;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-
-            animation: dotFloat 5s ease-in-out infinite;
-        }
-
-        .white-dot {
-            background: #FFFFFF;
-            box-shadow:
-                0 0 8px #FFFFFF,
-                0 0 15px #FFFFFF;
-        }
-
-        .blue-dot {
-            background: #87CEEB;
-            box-shadow:
-                0 0 8px #87CEEB,
-                0 0 15px #87CEEB;
-        }
-
-        .dot1 {
-            left: 5%;
-            top: 18%;
-        }
-
-        .dot2 {
-            left: 13%;
-            top: 50%;
-        }
-
-        .dot3 {
-            left: 25%;
-            top: 30%;
-        }
-
-        .dot4 {
-            left: 35%;
-            top: 75%;
-        }
-
-        .dot5 {
-            left: 48%;
-            top: 20%;
-        }
-
-        .dot6 {
-            left: 58%;
-            top: 65%;
-        }
-
-        .dot7 {
-            left: 70%;
-            top: 35%;
-        }
-
-        .dot8 {
-            left: 80%;
-            top: 78%;
-        }
-
-        .dot9 {
-            left: 90%;
-            top: 22%;
-        }
-
-        .dot10 {
-            left: 94%;
-            top: 60%;
-        }
+            #40E0D0 94%,
+            #20B2AA 100%
+        );
+}
 
-        @keyframes dotFloat {
 
-            0%, 100% {
-                transform: translateY(0);
-                opacity: 0.65;
-            }
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -9;
 
-            50% {
-                transform: translateY(-18px);
-                opacity: 1;
-            }
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.50),
+            rgba(64,224,208,0.20),
+            rgba(32,178,170,0.30),
+            rgba(255,255,255,0.40)
+        );
 
-        }
+    background-size: 400% 400%;
 
+    animation: backgroundMove 15s ease infinite;
+}
 
-        /* =========================================
-           เกล็ดหิมะนีออน
-        ========================================= */
+@keyframes backgroundMove {
 
-        .snow {
-            position: fixed;
-            z-index: -4;
+    0% {
+        background-position: 0% 50%;
+    }
 
-            color: #E0FFFF;
+    50% {
+        background-position: 100% 50%;
+    }
 
-            font-size: 30px;
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
-            text-shadow:
-                0 0 5px #E0FFFF,
-                0 0 10px #E0FFFF,
-                0 0 20px #E0FFFF,
-                0 0 35px #E0FFFF;
 
-            animation: snowMove 6s ease-in-out infinite;
+/* ==============================
+   จุดตกแต่ง
+============================== */
 
-            pointer-events: none;
-        }
+.decorations {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    animation: dotFloat 5s ease-in-out infinite;
+}
+
+.white-dot {
+    background: #FFFFFF;
+
+    box-shadow:
+        0 0 8px #FFFFFF,
+        0 0 15px #FFFFFF;
+}
 
-        .snow1 {
-            top: 17%;
-            left: 8%;
-        }
+.blue-dot {
+    background: #87CEEB;
+
+    box-shadow:
+        0 0 8px #87CEEB,
+        0 0 15px #87CEEB;
+}
 
-        .snow2 {
-            top: 30%;
-            left: 88%;
-            animation-delay: 1s;
-        }
+.dot1 { left: 5%; top: 18%; }
+.dot2 { left: 13%; top: 50%; }
+.dot3 { left: 25%; top: 30%; }
+.dot4 { left: 35%; top: 75%; }
+.dot5 { left: 48%; top: 20%; }
 
-        .snow3 {
-            top: 55%;
-            left: 18%;
-            animation-delay: 2s;
-        }
+.dot6 { left: 58%; top: 65%; }
+.dot7 { left: 70%; top: 35%; }
+.dot8 { left: 80%; top: 78%; }
+.dot9 { left: 90%; top: 22%; }
+.dot10 { left: 94%; top: 60%; }
 
-        .snow4 {
-            top: 75%;
-            left: 83%;
-            animation-delay: 3s;
-        }
+@keyframes dotFloat {
 
-        .snow5 {
-            top: 87%;
-            left: 45%;
-            animation-delay: 4s;
-        }
+    0%,100% {
+        transform: translateY(0);
+        opacity: 0.65;
+    }
 
-        @keyframes snowMove {
+    50% {
+        transform: translateY(-18px);
+        opacity: 1;
+    }
+}
 
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
 
-            50% {
-                transform: translateY(-20px) rotate(25deg);
-            }
+/* ==============================
+   เกล็ดหิมะนีออน
+============================== */
 
-        }
+.snow {
+    position: fixed;
 
+    z-index: -4;
 
-        /* =========================================
-           NAVIGATION ด้านบน
-        ========================================= */
+    color: #E0FFFF;
 
-        nav {
-            position: fixed;
+    font-size: 30px;
 
-            top: 12px;
-            left: 50%;
+    text-shadow:
+        0 0 5px #E0FFFF,
+        0 0 10px #E0FFFF,
+        0 0 20px #E0FFFF,
+        0 0 35px #E0FFFF;
 
-            transform: translateX(-50%);
+    animation: snowMove 6s ease-in-out infinite;
 
-            width: 96%;
-            max-width: 1250px;
+    pointer-events: none;
+}
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+.snow1 {
+    top: 17%;
+    left: 8%;
+}
 
-            gap: 8px;
+.snow2 {
+    top: 30%;
+    left: 88%;
+    animation-delay: 1s;
+}
 
-            z-index: 1000;
-        }
+.snow3 {
+    top: 55%;
+    left: 18%;
+    animation-delay: 2s;
+}
 
-        .nav-btn {
+.snow4 {
+    top: 75%;
+    left: 83%;
+    animation-delay: 3s;
+}
 
-            position: relative;
+.snow5 {
+    top: 87%;
+    left: 45%;
+    animation-delay: 4s;
+}
 
-            border: none;
+@keyframes snowMove {
 
-            background: rgba(255,255,255,0.30);
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
 
-            color: #000000;
+    50% {
+        transform: translateY(-20px) rotate(25deg);
+    }
+}
 
-            font-family: 'Kanit', sans-serif;
 
-            font-size: 16px;
+/* ==============================
+   NAVIGATION
+============================== */
 
-            padding: 14px 22px;
+nav {
+    position: fixed;
 
-            cursor: pointer;
+    top: 12px;
+    left: 50%;
 
-            border-radius: 18px;
+    transform: translateX(-50%);
 
-            transition: all 0.3s ease;
+    width: 96%;
+    max-width: 1250px;
 
-            backdrop-filter: blur(5px);
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    gap: 8px;
 
-        /* อุ้งเท้าแมวซ้าย */
+    z-index: 1000;
+}
 
-        .nav-btn::before {
+.nav-btn {
 
-            content: "🐾";
+    position: relative;
 
-            position: absolute;
+    border: none;
 
-            left: -5px;
-            top: -8px;
+    background: rgba(255,255,255,0.30);
 
-            font-size: 22px;
+    color: #000000;
 
-            transform: rotate(-18deg);
+    font-family: 'Kanit', sans-serif;
 
-            filter:
-                drop-shadow(0 0 4px #FFFFFF)
-                drop-shadow(0 0 7px #40E0D0);
-        }
+    font-size: 16px;
 
+    padding: 14px 22px;
 
-        /* อุ้งเท้าแมวขวา */
+    cursor: pointer;
 
-        .nav-btn::after {
+    border-radius: 18px;
 
-            content: "🐾";
+    transition: 0.3s;
 
-            position: absolute;
+    backdrop-filter: blur(5px);
+}
 
-            right: -5px;
-            bottom: -8px;
+.nav-btn::before {
 
-            font-size: 22px;
+    content: "🐾";
 
-            transform: rotate(18deg);
+    position: absolute;
 
-            filter:
-                drop-shadow(0 0 4px #FFFFFF)
-                drop-shadow(0 0 7px #40E0D0);
-        }
+    left: -5px;
+    top: -8px;
 
+    font-size: 22px;
 
-        .nav-btn:hover {
+    transform: rotate(-18deg);
 
-            transform: translateY(-4px) scale(1.05);
+    filter:
+        drop-shadow(0 0 4px #FFFFFF)
+        drop-shadow(0 0 7px #40E0D0);
+}
 
-            background: rgba(255,255,255,0.65);
+.nav-btn::after {
 
-            box-shadow:
-                0 0 10px #FFFFFF,
-                0 0 20px #40E0D0;
-        }
+    content: "🐾";
 
+    position: absolute;
 
-        .nav-btn.active {
+    right: -5px;
+    bottom: -8px;
 
-            background: rgba(255,255,255,0.75);
+    font-size: 22px;
 
-            font-weight: 600;
+    transform: rotate(18deg);
 
-            box-shadow:
-                0 0 10px #FFFFFF,
-                0 0 18px #40E0D0;
-        }
+    filter:
+        drop-shadow(0 0 4px #FFFFFF)
+        drop-shadow(0 0 7px #40E0D0);
+}
 
+.nav-btn:hover {
 
-        /* =========================================
-           PAGE
-        ========================================= */
+    transform: translateY(-4px) scale(1.05);
 
-        .page {
+    background: rgba(255,255,255,0.70);
 
-            min-height: 100vh;
+    box-shadow:
+        0 0 10px #FFFFFF,
+        0 0 20px #40E0D0;
+}
 
-            padding:
-                120px 7%
-                70px;
+.nav-btn.active {
 
-            display: none;
+    background: rgba(255,255,255,0.80);
 
-            position: relative;
-        }
+    font-weight: 600;
 
-        .page.active {
+    box-shadow:
+        0 0 10px #FFFFFF,
+        0 0 18px #40E0D0;
+}
 
-            display: block;
 
-            animation: pageFade 0.5s ease;
-        }
+/* ==============================
+   PAGE
+============================== */
 
-        @keyframes pageFade {
+.page {
 
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
+    min-height: 100vh;
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    padding:
+        120px 7%
+        70px;
 
-        }
+    display: none;
 
+    position: relative;
+}
 
-        /* =========================================
-           หัวข้อ
-        ========================================= */
+.page.active {
 
-        .page-title {
+    display: block;
 
-            text-align: center;
+    animation: pageFade 0.5s ease;
+}
 
-            font-size: clamp(45px, 7vw, 85px);
+@keyframes pageFade {
 
-            color: #000000;
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-            font-weight: 700;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-            margin-bottom: 40px;
 
-            text-shadow:
-                0 0 8px #FFFFFF,
-                0 0 18px #E0FFFF;
-        }
+/* ==============================
+   หัวข้อ
+============================== */
 
+.page-title {
 
-        /* =========================================
-           หน้า PORTFOLIO
-        ========================================= */
+    text-align: center;
 
-        .portfolio-page {
+    font-size: clamp(45px, 7vw, 85px);
 
-            text-align: center;
-        }
+    color: #000000;
 
+    font-weight: 700;
 
-        .portfolio-title {
+    margin-bottom: 40px;
 
-            font-size: clamp(65px, 10vw, 115px);
+    text-shadow:
+        0 0 8px #FFFFFF,
+        0 0 18px #E0FFFF;
+}
 
-            color: #000000;
 
-            font-weight: 700;
+/* ==============================
+   หน้า PORTFOLIO
+============================== */
 
-            margin-bottom: 30px;
+.portfolio-page {
+    text-align: center;
+}
 
-            text-shadow:
-                0 0 10px #FFFFFF,
-                0 0 20px #E0FFFF,
-                0 0 35px rgba(255,255,255,0.8);
-        }
+.portfolio-title {
 
+    font-size: clamp(65px, 10vw, 115px);
 
-        /* รูป Portfolio */
+    color: #000000;
 
-        .portfolio-image {
+    font-weight: 700;
 
-            width: min(450px, 85vw);
+    margin-bottom: 30px;
 
-            aspect-ratio: 1 / 1;
+    text-shadow:
+        0 0 10px #FFFFFF,
+        0 0 20px #E0FFFF,
+        0 0 35px rgba(255,255,255,0.8);
+}
 
-            margin: 0 auto 40px;
 
-            border-radius: 28px;
+/* ==============================
+   ⭐ รูป Portfolio
+============================== */
 
-            border: 5px solid #FFFFFF;
+.portfolio-image {
 
-            background: rgba(255,255,255,0.70);
+    width: min(450px, 85vw);
 
-            overflow: hidden;
+    aspect-ratio: 1 / 1;
 
-            display: flex;
+    margin: 0 auto 40px;
 
-            justify-content: center;
+    border-radius: 28px;
 
-            align-items: center;
+    border: 5px solid #FFFFFF;
 
-            box-shadow:
-                0 0 15px #FFFFFF,
-                0 0 30px #40E0D0,
-                0 0 50px rgba(32,178,170,0.8);
-        }
+    background: #FFFFFF;
 
-        .portfolio-image img {
+    overflow: hidden;
 
-            width: 100%;
-            height: 100%;
+    display: flex;
 
-            object-fit: cover;
-        }
+    justify-content: center;
 
-        .image-placeholder {
+    align-items: center;
 
-            font-size: 20px;
+    box-shadow:
+        0 0 15px #FFFFFF,
+        0 0 30px #40E0D0,
+        0 0 50px rgba(32,178,170,0.8);
+}
 
-            line-height: 1.8;
 
-            color: #000000;
+/*
+   สำคัญ:
+   รูปจะเต็มกรอบ
+*/
 
-            padding: 30px;
-        }
+.portfolio-image img {
 
+    display: block;
 
-        /* =========================================
-           ข้อมูลหน้า Portfolio
-        ========================================= */
+    width: 100%;
+    height: 100%;
 
-        .portfolio-info {
+    object-fit: cover;
+}
 
-            max-width: 950px;
 
-            margin: auto;
+/* ข้อความกรณีไม่พบรูป */
 
-            padding: 35px;
+.image-placeholder {
 
-            text-align: left;
+    color: #000000;
 
-            background: rgba(255,255,255,0.75);
+    font-size: 20px;
 
-            border: 2px solid #FFFFFF;
+    line-height: 1.8;
 
-            border-radius: 25px;
+    padding: 30px;
 
-            box-shadow:
-                0 0 15px #FFFFFF,
-                0 0 30px rgba(64,224,208,0.5);
+    text-align: center;
+}
 
-            backdrop-filter: blur(8px);
-        }
 
-        .portfolio-info p {
+/* ==============================
+   ข้อมูลหน้า Portfolio
+============================== */
 
-            color: #000000;
+.portfolio-info {
 
-            font-size: 20px;
+    max-width: 950px;
 
-            line-height: 1.9;
+    margin: auto;
 
-            margin-bottom: 5px;
-        }
+    padding: 35px;
 
-        .portfolio-info .big {
+    text-align: left;
 
-            font-size: 29px;
+    background: rgba(255,255,255,0.75);
 
-            font-weight: 600;
-        }
+    border: 2px solid #FFFFFF;
 
-        .portfolio-info .goal {
+    border-radius: 25px;
 
-            font-size: 23px;
+    box-shadow:
+        0 0 15px #FFFFFF,
+        0 0 30px rgba(64,224,208,0.5);
 
-            font-weight: 600;
+    backdrop-filter: blur(8px);
+}
 
-            margin-top: 15px;
-        }
+.portfolio-info p {
 
+    color: #000000;
 
-        /* =========================================
-           กล่องเนื้อหา
-        ========================================= */
+    font-size: 20px;
 
-        .content-box {
+    line-height: 1.9;
 
-            max-width: 950px;
+    margin-bottom: 5px;
+}
 
-            margin: auto;
+.portfolio-info .big {
 
-            padding: 40px;
+    font-size: 29px;
 
-            background: rgba(255,255,255,0.75);
+    font-weight: 600;
+}
 
-            border: 2px solid #FFFFFF;
+.portfolio-info .goal {
 
-            border-radius: 25px;
+    font-size: 23px;
 
-            box-shadow:
-                0 0 15px #FFFFFF,
-                0 0 30px rgba(32,178,170,0.5);
+    font-weight: 600;
 
-            backdrop-filter: blur(8px);
-        }
+    margin-top: 15px;
+}
 
 
-        .content-box h2 {
+/* ==============================
+   CONTENT BOX
+============================== */
 
-            color: #000000;
+.content-box {
 
-            font-size: 30px;
+    max-width: 950px;
 
-            margin-bottom: 20px;
-        }
+    margin: auto;
 
+    padding: 40px;
 
-        .content-box p {
+    background: rgba(255,255,255,0.75);
 
-            color: #000000;
+    border: 2px solid #FFFFFF;
 
-            font-size: 19px;
+    border-radius: 25px;
 
-            line-height: 2;
+    box-shadow:
+        0 0 15px #FFFFFF,
+        0 0 30px rgba(32,178,170,0.5);
 
-            text-align: justify;
-        }
+    backdrop-filter: blur(8px);
+}
 
+.content-box h2 {
 
-        /* =========================================
-           ผลงาน
-        ========================================= */
+    color: #000000;
 
-        .works-grid {
+    font-size: 30px;
 
-            max-width: 1100px;
+    margin-bottom: 20px;
+}
 
-            margin: auto;
+.content-box p {
 
-            display: grid;
+    color: #000000;
 
-            grid-template-columns: repeat(2, 1fr);
+    font-size: 19px;
 
-            gap: 35px;
-        }
+    line-height: 2;
 
+    text-align: justify;
+}
 
-        .work-card {
 
-            padding: 20px;
+/* ==============================
+   ⭐ ผลงาน 4 รูป
+============================== */
 
-            background: rgba(255,255,255,0.75);
+.works-grid {
 
-            border: 2px solid #FFFFFF;
+    max-width: 1100px;
 
-            border-radius: 25px;
+    margin: auto;
 
-            box-shadow:
-                0 0 15px #FFFFFF,
-                0 0 25px rgba(64,224,208,0.5);
+    display: grid;
 
-            transition: 0.3s;
-        }
+    grid-template-columns:
+        repeat(2, minmax(250px, 1fr));
 
+    gap: 35px;
+}
 
-        .work-card:hover {
 
-            transform: translateY(-8px);
+.work-card {
 
-            box-shadow:
-                0 0 20px #FFFFFF,
-                0 0 35px #40E0D0;
-        }
+    padding: 20px;
 
+    background: rgba(255,255,255,0.75);
 
-        .work-image {
+    border: 2px solid #FFFFFF;
 
-            width: 100%;
+    border-radius: 25px;
 
-            aspect-ratio: 1 / 1;
+    box-shadow:
+        0 0 15px #FFFFFF,
+        0 0 25px rgba(64,224,208,0.5);
 
-            overflow: hidden;
+    transition: 0.3s;
+}
 
-            border-radius: 18px;
 
-            border: 2px solid #40E0D0;
+.work-card:hover {
 
-            background: #FFFFFF;
+    transform: translateY(-8px);
 
-            display: flex;
+    box-shadow:
+        0 0 20px #FFFFFF,
+        0 0 35px #40E0D0;
+}
 
-            justify-content: center;
 
-            align-items: center;
-        }
+/* กรอบรูป */
 
+.work-image {
 
-        .work-image img {
+    width: 100%;
 
-            width: 100%;
-            height: 100%;
+    aspect-ratio: 1 / 1;
 
-            object-fit: cover;
-        }
+    overflow: hidden;
 
+    border-radius: 18px;
 
-        .work-placeholder {
+    border: 2px solid #40E0D0;
 
-            text-align: center;
+    background: #FFFFFF;
 
-            font-size: 18px;
+    display: flex;
 
-            line-height: 1.7;
+    justify-content: center;
 
-            padding: 20px;
-        }
+    align-items: center;
+}
 
 
-        .work-card h3 {
+/*
+   สำคัญ:
+   รูปผลงานเต็มกรอบสี่เหลี่ยม
+*/
 
-            color: #000000;
+.work-image img {
 
-            text-align: center;
+    display: block;
 
-            font-size: 22px;
+    width: 100%;
+    height: 100%;
 
-            margin-top: 15px;
-        }
+    object-fit: cover;
+}
 
 
-        /* =========================================
-           ติดต่อ
-        ========================================= */
+/* กรณีไม่มีรูป */
 
-        .contact-box {
+.work-placeholder {
 
-            max-width: 750px;
+    text-align: center;
 
-            margin: auto;
+    color: #000000;
 
-            display: flex;
+    font-size: 18px;
 
-            flex-direction: column;
+    line-height: 1.7;
 
-            gap: 20px;
-        }
+    padding: 20px;
+}
 
 
-        .contact-item {
+.work-card h3 {
 
-            padding: 22px 30px;
+    color: #000000;
 
-            background: rgba(255,255,255,0.75);
+    text-align: center;
 
-            border: 2px solid #FFFFFF;
+    font-size: 22px;
 
-            border-radius: 20px;
+    margin-top: 15px;
+}
 
-            color: #000000;
 
-            font-size: 22px;
+/* ==============================
+   CONTACT
+============================== */
 
-            box-shadow:
-                0 0 15px #FFFFFF,
-                0 0 25px rgba(64,224,208,0.5);
+.contact-box {
 
-            transition: 0.3s;
-        }
+    max-width: 750px;
 
+    margin: auto;
 
-        .contact-item:hover {
+    display: flex;
 
-            transform: translateX(8px);
-        }
+    flex-direction: column;
 
+    gap: 20px;
+}
 
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
+.contact-item {
 
-        @media (max-width: 900px) {
+    padding: 22px 30px;
 
-            nav {
+    background: rgba(255,255,255,0.75);
 
-                gap: 3px;
+    border: 2px solid #FFFFFF;
 
-                width: 100%;
+    border-radius: 20px;
 
-                padding: 0 5px;
-            }
+    color: #000000;
 
-            .nav-btn {
+    font-size: 22px;
 
-                font-size: 13px;
+    box-shadow:
+        0 0 15px #FFFFFF,
+        0 0 25px rgba(64,224,208,0.5);
 
-                padding: 12px 13px;
-            }
+    transition: 0.3s;
+}
 
-            .nav-btn::before,
-            .nav-btn::after {
+.contact-item:hover {
 
-                font-size: 17px;
-            }
+    transform: translateX(8px);
+}
 
-            .works-grid {
 
-                grid-template-columns: 1fr;
-            }
+/* ==============================
+   RESPONSIVE
+============================== */
 
-        }
+@media (max-width: 900px) {
 
+    nav {
 
-        @media (max-width: 600px) {
+        gap: 3px;
 
-            nav {
+        width: 100%;
 
-                flex-wrap: wrap;
+        padding: 0 5px;
+    }
 
-                top: 5px;
-            }
+    .nav-btn {
 
-            .nav-btn {
+        font-size: 13px;
 
-                font-size: 11px;
+        padding: 12px 13px;
+    }
 
-                padding: 8px 10px;
-            }
+    .nav-btn::before,
+    .nav-btn::after {
 
-            .page {
+        font-size: 17px;
+    }
 
-                padding:
-                    115px 5%
-                    50px;
-            }
+    .works-grid {
 
-            .content-box,
-            .portfolio-info {
+        grid-template-columns: 1fr;
+    }
 
-                padding: 25px 20px;
-            }
+}
 
-            .portfolio-info p {
 
-                font-size: 17px;
-            }
+@media (max-width: 600px) {
 
-            .portfolio-info .big {
+    nav {
 
-                font-size: 23px;
-            }
+        flex-wrap: wrap;
 
-            .content-box p {
+        top: 5px;
+    }
 
-                font-size: 17px;
-            }
+    .nav-btn {
 
-            .contact-item {
+        font-size: 11px;
 
-                font-size: 17px;
-            }
+        padding: 8px 10px;
+    }
 
-        }
+    .page {
 
-    </style>
+        padding:
+            115px 5%
+            50px;
+    }
+
+    .content-box,
+    .portfolio-info {
+
+        padding: 25px 20px;
+    }
+
+    .portfolio-info p {
+
+        font-size: 17px;
+    }
+
+    .portfolio-info .big {
+
+        font-size: 23px;
+    }
+
+    .content-box p {
+
+        font-size: 17px;
+    }
+
+    .contact-item {
+
+        font-size: 17px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================================
-         จุดตกแต่งพื้นหลัง
-    ========================================= -->
+<!-- ==============================
+     DECORATIONS
+============================== -->
 
-    <div class="decorations">
+<div class="decorations">
 
-        <div class="dot white-dot dot1"></div>
-        <div class="dot white-dot dot2"></div>
-        <div class="dot white-dot dot3"></div>
-        <div class="dot white-dot dot4"></div>
-        <div class="dot white-dot dot5"></div>
+    <div class="dot white-dot dot1"></div>
+    <div class="dot white-dot dot2"></div>
+    <div class="dot white-dot dot3"></div>
+    <div class="dot white-dot dot4"></div>
+    <div class="dot white-dot dot5"></div>
 
-        <div class="dot blue-dot dot6"></div>
-        <div class="dot blue-dot dot7"></div>
-        <div class="dot blue-dot dot8"></div>
-        <div class="dot blue-dot dot9"></div>
-        <div class="dot blue-dot dot10"></div>
+    <div class="dot blue-dot dot6"></div>
+    <div class="dot blue-dot dot7"></div>
+    <div class="dot blue-dot dot8"></div>
+    <div class="dot blue-dot dot9"></div>
+    <div class="dot blue-dot dot10"></div>
+
+</div>
+
+
+<div class="snow snow1">❄</div>
+<div class="snow snow2">❄</div>
+<div class="snow snow3">❄</div>
+<div class="snow snow4">❄</div>
+<div class="snow snow5">❄</div>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<nav>
+
+    <button
+        class="nav-btn active"
+        onclick="showPage('portfolio', this)">
+        Portfolio
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="showPage('preface', this)">
+        คำนำ
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="showPage('profile', this)">
+        ประวัติส่วนตัว
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="showPage('works', this)">
+        ผลงานและกิจกรรม
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="showPage('contact', this)">
+        ช่องทางการติดต่อ
+    </button>
+
+</nav>
+
+
+<!-- ==============================
+     PAGE 1 : PORTFOLIO
+============================== -->
+
+<section
+    id="portfolio"
+    class="page portfolio-page active">
+
+    <h1 class="portfolio-title">
+        portfolio
+    </h1>
+
+
+    <!-- ==========================
+         ⭐ ใส่รูป Portfolio ตรงนี้
+         
+         ชื่อไฟล์:
+         portfolio.jpg
+    =========================== -->
+
+    <div class="portfolio-image">
+
+        <img
+            src="portfolio.jpg"
+            alt="รูป Portfolio"
+            onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='block';
+            "
+        >
+
+        <div
+            class="image-placeholder"
+            style="display:none;">
+
+            📷<br>
+
+            ไม่พบรูปภาพ<br><br>
+
+            กรุณาใส่ไฟล์<br>
+
+            <b>portfolio.jpg</b>
+
+        </div>
 
     </div>
 
 
-    <!-- เกล็ดหิมะนีออน -->
+    <!-- ข้อมูล -->
 
-    <div class="snow snow1">❄</div>
-    <div class="snow snow2">❄</div>
-    <div class="snow snow3">❄</div>
-    <div class="snow snow4">❄</div>
-    <div class="snow snow5">❄</div>
+    <div class="portfolio-info">
+
+        <p class="big">
+            ชื่อ-นามสกุล ธนัชพร เดชฤทธิ์
+        </p>
+
+        <p>
+            Name Thanatchaporn Detrit
+        </p>
+
+        <p>
+            ชื่อเล่น เกิ๊ต
+        </p>
+
+        <p>
+            Nickname Kirt
+        </p>
+
+        <p>
+            ระดับชั้น มัธยมศึกษาชั้นปีที่ 6/3
+        </p>
+
+        <p>
+            แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
+        </p>
+
+        <p>
+            โรงเรียนที่กำลังศึกษาอยู่
+            โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+        </p>
+
+        <p class="goal">
+            คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
+        </p>
+
+        <p>
+            คณะวิศวกรรมศาสตร์
+            สาขาวิศวกรรมโยธา
+            มหาวิทยาลัยจุฬาลงกรณ์
+        </p>
+
+    </div>
+
+</section>
 
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================= -->
+<!-- ==============================
+     PAGE 2 : คำนำ
+============================== -->
 
-    <nav>
+<section
+    id="preface"
+    class="page">
 
-        <!-- หน้า Portfolio -->
+    <h1 class="page-title">
+        คำนำ
+    </h1>
 
-        <button
-            class="nav-btn active"
-            onclick="showPage('portfolio', this)"
-        >
-            Portfolio
-        </button>
+    <div class="content-box">
 
-
-        <!-- หน้าคำนำ -->
-
-        <button
-            class="nav-btn"
-            onclick="showPage('preface', this)"
-        >
+        <h2>
             คำนำ
-        </button>
+        </h2>
+
+        <p>
+            แฟ้มสะสมผลงาน (Portfolio) เล่มนี้
+            จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับ
+            ประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ
+            และกิจกรรมต่างๆ ของข้าพเจ้า
+            โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ
+            ภายในแฟ้มสะสมผลงานเล่มนี้
+            ประกอบด้วยประวัติส่วนตัว ผลการเรียน
+            กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
+        </p>
+
+    </div>
+
+</section>
 
 
-        <!-- หน้าประวัติส่วนตัว -->
+<!-- ==============================
+     PAGE 3 : PROFILE
+============================== -->
 
-        <button
-            class="nav-btn"
-            onclick="showPage('profile', this)"
-        >
+<section
+    id="profile"
+    class="page">
+
+    <h1 class="page-title">
+        ประวัติส่วนตัว
+    </h1>
+
+    <div class="content-box">
+
+        <h2>
             ประวัติส่วนตัว
-        </button>
+        </h2>
 
+        <p>
+            <b>ชื่อ-นามสกุล</b>
+            ธนัชพร เดชฤทธิ์
+        </p>
 
-        <!-- หน้าผลงาน -->
+        <p>
+            <b>Name</b>
+            Thanatchaporn Detrit
+        </p>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('works', this)"
-        >
-            ผลงานและกิจกรรม
-        </button>
+        <p>
+            <b>ชื่อเล่น</b>
+            เกิ๊ต
+        </p>
 
+        <p>
+            <b>Nickname</b>
+            Kirt
+        </p>
 
-        <!-- หน้าติดต่อ -->
+        <p>
+            <b>อายุ</b>
+            17 ปี
+        </p>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('contact', this)"
-        >
-            ช่องทางการติดต่อ
-        </button>
+        <p>
+            <b>Age</b>
+            17 years old
+        </p>
 
-    </nav>
+        <p>
+            <b>วันเกิด</b>
+            24/11/2551
+        </p>
 
+        <p>
+            <b>สัญชาติ</b>
+            ไทย
+        </p>
 
+        <p>
+            <b>เชื้อชาติ</b>
+            ไทย
+        </p>
 
-    <!-- =========================================
-         PAGE 1 : PORTFOLIO
-    ========================================= -->
+        <p>
+            <b>ศาสนา</b>
+            พุทธ
+        </p>
 
-    <section
-        id="portfolio"
-        class="page portfolio-page active"
-    >
+        <p>
+            <b>ประวัติการศึกษา</b>
+        </p>
 
-        <h1 class="portfolio-title">
-            portfolio
-        </h1>
+        <p>
+            <b>สถานศึกษา</b>
+            โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+        </p>
 
+        <p>
+            <b>แผนการเรียน</b>
+            วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
+        </p>
 
-        <!-- รูป Portfolio -->
+    </div>
 
-        <div class="portfolio-image">
+</section>
 
-            <!--
-                นำรูป Portfolio มาใส่โดยใช้ชื่อ
-                portfolio.jpg
-            -->
 
-            <img
-                src="portfolio.jpg"
-                alt="Portfolio"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-            >
+<!-- ==============================
+     PAGE 4 : WORKS
+============================== -->
 
-            <div
-                class="image-placeholder"
-                style="display:none;"
-            >
+<section
+    id="works"
+    class="page">
 
-                📷<br>
+    <h1 class="page-title">
+        ผลงานและกิจกรรม
+    </h1>
 
-                ใส่รูป Portfolio ตรงนี้<br>
 
-                ตั้งชื่อรูปว่า<br>
+    <div class="works-grid">
 
-                <b>portfolio.jpg</b>
 
-            </div>
+        <!-- ========================
+             รูปที่ 1
+        ========================= -->
 
-        </div>
+        <div class="work-card">
 
+            <div class="work-image">
 
-        <!-- ข้อมูลส่วนตัว -->
+                <img
+                    src="work1.jpg"
+                    alt="ผลงานที่ 1"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='block';
+                    "
+                >
 
-        <div class="portfolio-info">
+                <div
+                    class="work-placeholder"
+                    style="display:none;">
 
-            <p class="big">
-                ชื่อ-นามสกุล ธนัชพร เดชฤทธิ์
-            </p>
+                    📷<br>
+                    ไม่พบรูปภาพ<br><br>
 
-            <p>
-                Name Thanatchaporn Detrit
-            </p>
-
-            <p>
-                ชื่อเล่น เกิ๊ต
-            </p>
-
-            <p>
-                Nickname Kirt
-            </p>
-
-            <p>
-                ระดับชั้น มัธยมศึกษาชั้นปีที่ 6/3
-            </p>
-
-            <p>
-                แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
-            </p>
-
-            <p>
-                โรงเรียนที่กำลังศึกษาอยู่
-                โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-            </p>
-
-            <p class="goal">
-                คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
-            </p>
-
-            <p>
-                คณะวิศวกรรมศาสตร์
-                สาขาวิศวกรรมโยธา
-                มหาวิทยาลัยจุฬาลงกรณ์
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         PAGE 2 : คำนำ
-    ========================================= -->
-
-    <section
-        id="preface"
-        class="page"
-    >
-
-        <h1 class="page-title">
-            คำนำ
-        </h1>
-
-
-        <div class="content-box">
-
-            <h2>
-                คำนำ
-            </h2>
-
-            <p>
-                แฟ้มสะสมผลงาน (Portfolio) เล่มนี้
-                จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับ
-                ประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ
-                และกิจกรรมต่างๆ ของข้าพเจ้า
-                โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ
-                ภายในแฟ้มสะสมผลงานเล่มนี้
-                ประกอบด้วยประวัติส่วนตัว ผลการเรียน
-                กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         PAGE 3 : ประวัติส่วนตัว
-    ========================================= -->
-
-    <section
-        id="profile"
-        class="page"
-    >
-
-        <h1 class="page-title">
-            ประวัติส่วนตัว
-        </h1>
-
-
-        <div class="content-box">
-
-            <h2>
-                ประวัติส่วนตัว
-            </h2>
-
-            <p>
-                <b>ชื่อ-นามสกุล</b>
-                ธนัชพร เดชฤทธิ์
-            </p>
-
-            <p>
-                <b>Name</b>
-                Thanatchaporn Detrit
-            </p>
-
-            <p>
-                <b>ชื่อเล่น</b>
-                เกิ๊ต
-            </p>
-
-            <p>
-                <b>Nickname</b>
-                Kirt
-            </p>
-
-            <p>
-                <b>อายุ</b>
-                17 ปี
-            </p>
-
-            <p>
-                <b>Age</b>
-                17 years old
-            </p>
-
-            <p>
-                <b>วันเกิด</b>
-                24/11/2551
-            </p>
-
-            <p>
-                <b>สัญชาติ</b>
-                ไทย
-            </p>
-
-            <p>
-                <b>เชื้อชาติ</b>
-                ไทย
-            </p>
-
-            <p>
-                <b>ศาสนา</b>
-                พุทธ
-            </p>
-
-            <p>
-                <b>ประวัติการศึกษา</b>
-            </p>
-
-            <p>
-                <b>สถานศึกษา</b>
-                โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-            </p>
-
-            <p>
-                <b>แผนการเรียน</b>
-                วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         PAGE 4 : ผลงานและกิจกรรม
-    ========================================= -->
-
-    <section
-        id="works"
-        class="page"
-    >
-
-        <h1 class="page-title">
-            ผลงานและกิจกรรม
-        </h1>
-
-
-        <div class="works-grid">
-
-
-            <!-- ผลงานที่ 1 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work1.jpg"
-                        alt="ผลงานที่ 1"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-
-                    <div
-                        class="work-placeholder"
-                        style="display:none;"
-                    >
-
-                        📷<br>
-
-                        ใส่รูปภาพที่ 1<br>
-
-                        <b>work1.jpg</b>
-
-                    </div>
+                    <b>work1.jpg</b>
 
                 </div>
 
-                <h3>
-                    ผลงานและกิจกรรมที่ 1
-                </h3>
-
             </div>
 
-
-
-            <!-- ผลงานที่ 2 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work2.jpg"
-                        alt="ผลงานที่ 2"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-
-                    <div
-                        class="work-placeholder"
-                        style="display:none;"
-                    >
-
-                        📷<br>
-
-                        ใส่รูปภาพที่ 2<br>
-
-                        <b>work2.jpg</b>
-
-                    </div>
-
-                </div>
-
-                <h3>
-                    ผลงานและกิจกรรมที่ 2
-                </h3>
-
-            </div>
-
-
-
-            <!-- ผลงานที่ 3 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work3.jpg"
-                        alt="ผลงานที่ 3"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-
-                    <div
-                        class="work-placeholder"
-                        style="display:none;"
-                    >
-
-                        📷<br>
-
-                        ใส่รูปภาพที่ 3<br>
-
-                        <b>work3.jpg</b>
-
-                    </div>
-
-                </div>
-
-                <h3>
-                    ผลงานและกิจกรรมที่ 3
-                </h3>
-
-            </div>
-
-
-            </div>
+            <h3>
+                ผลงานและกิจกรรมที่ 1
+            </h3>
 
         </div>
 
-    </section>
 
+        <!-- ========================
+             รูปที่ 2
+        ========================= -->
 
+        <div class="work-card">
 
-    <!-- =========================================
-         PAGE 5 : ช่องทางการติดต่อ
-    ========================================= -->
+            <div class="work-image">
 
-    <section
-        id="contact"
-        class="page"
-    >
+                <img
+                    src="work2.jpg"
+                    alt="ผลงานที่ 2"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='block';
+                    "
+                >
 
-        <h1 class="page-title">
-            ช่องทางการติดต่อ
-        </h1>
+                <div
+                    class="work-placeholder"
+                    style="display:none;">
 
+                    📷<br>
+                    ไม่พบรูปภาพ<br><br>
 
-        <div class="contact-box">
+                    <b>work2.jpg</b>
 
-            <div class="contact-item">
-                🐾
-                <b>Gmail :</b>
-                kirtdetrit2008@gmail.com
+                </div>
+
             </div>
 
-            <div class="contact-item">
-                🐾
-                <b>Tel :</b>
-                0803168477
-            </div>
-
-            <div class="contact-item">
-                🐾
-                <b>IG :</b>
-                ktllysq
-            </div>
+            <h3>
+                ผลงานและกิจกรรมที่ 2
+            </h3>
 
         </div>
 
-    </section>
+
+        <!-- ========================
+             รูปที่ 3
+        ========================= -->
+
+        <div class="work-card">
+
+            <div class="work-image">
+
+                <img
+                    src="work3.jpg"
+                    alt="ผลงานที่ 3"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='block';
+                    "
+                >
+
+                <div
+                    class="work-placeholder"
+                    style="display:none;">
+
+                    📷<br>
+                    ไม่พบรูปภาพ<br><br>
+
+                    <b>work3.jpg</b>
+
+                </div>
+
+            </div>
+
+            <h3>
+                ผลงานและกิจกรรมที่ 3
+            </h3>
+
+        </div>
 
 
+        <!-- ========================
+             รูปที่ 4
+        ========================= -->
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
+        <div class="work-card">
 
-    <script>
+            <div class="work-image">
 
-        function showPage(pageId, button) {
+                <img
+                    src="work4.jpg"
+                    alt="ผลงานที่ 4"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='block';
+                    "
+                >
 
-            /* ซ่อนทุกหน้า */
+                <div
+                    class="work-placeholder"
+                    style="display:none;">
 
-            const pages = document.querySelectorAll('.page');
+                    📷<br>
+                    ไม่พบรูปภาพ<br><br>
 
-            pages.forEach(function(page) {
+                    <b>work4.jpg</b>
 
-                page.classList.remove('active');
+                </div>
 
-            });
+            </div>
 
+            <h3>
+                ผลงานและกิจกรรมที่ 4
+            </h3>
 
-            /* แสดงหน้าที่เลือก */
+        </div>
 
-            const selectedPage =
-                document.getElementById(pageId);
+    </div>
 
-            if (selectedPage) {
-
-                selectedPage.classList.add('active');
-
-            }
-
-
-            /* เปลี่ยนสถานะปุ่ม */
-
-            const buttons =
-                document.querySelectorAll('.nav-btn');
-
-            buttons.forEach(function(btn) {
-
-                btn.classList.remove('active');
-
-            });
+</section>
 
 
-            button.classList.add('active');
+<!-- ==============================
+     PAGE 5 : CONTACT
+============================== -->
+
+<section
+    id="contact"
+    class="page">
+
+    <h1 class="page-title">
+        ช่องทางการติดต่อ
+    </h1>
 
 
-            /* เลื่อนกลับไปด้านบน */
+    <div class="contact-box">
 
-            window.scrollTo({
+        <div class="contact-item">
 
-                top: 0,
+            🐾
 
-                behavior: 'smooth'
+            <b>Gmail :</b>
 
-            });
+            kirtdetrit2008@gmail.com
 
-        }
+        </div>
 
-    </script>
+
+        <div class="contact-item">
+
+            🐾
+
+            <b>Tel :</b>
+
+            0803168477
+
+        </div>
+
+
+        <div class="contact-item">
+
+            🐾
+
+            <b>IG :</b>
+
+            ktllysq
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+
+<script>
+
+function showPage(pageId, button) {
+
+    /* ซ่อนทุกหน้า */
+
+    const pages =
+        document.querySelectorAll('.page');
+
+    pages.forEach(function(page) {
+
+        page.classList.remove('active');
+
+    });
+
+
+    /* แสดงหน้าที่เลือก */
+
+    const selectedPage =
+        document.getElementById(pageId);
+
+    if (selectedPage) {
+
+        selectedPage.classList.add('active');
+
+    }
+
+
+    /* เปลี่ยนปุ่ม Active */
+
+    const buttons =
+        document.querySelectorAll('.nav-btn');
+
+    buttons.forEach(function(btn) {
+
+        btn.classList.remove('active');
+
+    });
+
+
+    button.classList.add('active');
+
+
+    /* กลับขึ้นด้านบน */
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: 'smooth'
+
+    });
+
+}
+
+</script>
 
 
 </body>
