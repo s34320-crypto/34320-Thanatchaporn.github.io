@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คำนำ | Thanatchaporn Detrit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; min-height: 100vh; }
+body { font-family: 'Kanit', sans-serif; color: #000000; overflow-x: hidden; }
+
+body::before {
+    content: ""; position: fixed; inset: 0; z-index: -10;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 10%, #40E0D0 10%, #FFFFFF 22%, #40E0D0 22%, #20B2AA 34%, #40E0D0 34%, #FFFFFF 46%, #40E0D0 46%, #20B2AA 58%, #40E0D0 58%, #FFFFFF 70%, #40E0D0 70%, #20B2AA 82%, #40E0D0 82%, #FFFFFF 94%, #40E0D0 94%, #20B2AA 100%);
+}
+body::after {
+    content: ""; position: fixed; inset: 0; z-index: -9;
+    background: linear-gradient(135deg, rgba(255,255,255,0.50), rgba(64,224,208,0.20), rgba(32,178,170,0.30), rgba(255,255,255,0.40));
+    background-size: 400% 400%; animation: backgroundMove 15s ease infinite;
+}
+@keyframes backgroundMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.decorations { position: fixed; inset: 0; z-index: -5; pointer-events: none; }
+.dot { position: absolute; width: 7px; height: 7px; border-radius: 50%; animation: dotFloat 5s ease-in-out infinite; }
+.white-dot { background: #FFFFFF; box-shadow: 0 0 8px #FFFFFF, 0 0 15px #FFFFFF; }
+.blue-dot { background: #87CEEB; box-shadow: 0 0 8px #87CEEB, 0 0 15px #87CEEB; }
+.dot1 { left: 5%; top: 18%; } .dot2 { left: 13%; top: 50%; } .dot3 { left: 25%; top: 30%; } .dot4 { left: 35%; top: 75%; } .dot5 { left: 48%; top: 20%; }
+.dot6 { left: 58%; top: 65%; } .dot7 { left: 70%; top: 35%; } .dot8 { left: 80%; top: 78%; } .dot9 { left: 90%; top: 22%; } .dot10 { left: 94%; top: 60%; }
+@keyframes dotFloat { 0%,100% { transform: translateY(0); opacity: 0.65; } 50% { transform: translateY(-18px); opacity: 1; } }
+
+.snow { position: fixed; z-index: -4; color: #E0FFFF; font-size: 30px; text-shadow: 0 0 5px #E0FFFF, 0 0 10px #E0FFFF, 0 0 20px #E0FFFF, 0 0 35px #E0FFFF; animation: snowMove 6s ease-in-out infinite; pointer-events: none; }
+.snow1 { top: 17%; left: 8%; } .snow2 { top: 30%; left: 88%; animation-delay: 1s; } .snow3 { top: 55%; left: 18%; animation-delay: 2s; } .snow4 { top: 75%; left: 83%; animation-delay: 3s; } .snow5 { top: 87%; left: 45%; animation-delay: 4s; }
+@keyframes snowMove { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(25deg); } }
+
+nav {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 96%; max-width: 1250px;
+    display: flex; justify-content: center; align-items: center; gap: 8px; z-index: 1000;
+}
+.nav-btn {
+    position: relative; border: none; background: rgba(255,255,255,0.30); color: #000000;
+    font-family: 'Kanit', sans-serif; font-size: 16px; padding: 14px 22px; cursor: pointer;
+    border-radius: 18px; transition: 0.3s; backdrop-filter: blur(5px); text-decoration: none; display: inline-block;
+}
+.nav-btn::before { content: "🐾"; position: absolute; left: -5px; top: -8px; font-size: 22px; transform: rotate(-18deg); filter: drop-shadow(0 0 4px #FFFFFF) drop-shadow(0 0 7px #40E0D0); }
+.nav-btn::after { content: "🐾"; position: absolute; right: -5px; bottom: -8px; font-size: 22px; transform: rotate(18deg); filter: drop-shadow(0 0 4px #FFFFFF) drop-shadow(0 0 7px #40E0D0); }
+.nav-btn:hover { transform: translateY(-4px) scale(1.05); background: rgba(255,255,255,0.70); box-shadow: 0 0 10px #FFFFFF, 0 0 20px #40E0D0; }
+.nav-btn.active { background: rgba(255,255,255,0.80); font-weight: 600; box-shadow: 0 0 10px #FFFFFF, 0 0 18px #40E0D0; }
+
+.page {
+    width: 100vw; min-height: 100vh; padding: 110px 7% 60px; box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.page-title { text-align: center; font-size: clamp(40px, 6vw, 70px); color: #000000; font-weight: 700; margin-bottom: 30px; text-shadow: 0 0 8px #FFFFFF, 0 0 18px #E0FFFF; }
+
+.content-box {
+    width: 100%; max-width: 900px; margin: auto; padding: 35px 40px;
+    background: rgba(255,255,255,0.75); border: 2px solid #FFFFFF; border-radius: 25px;
+    box-shadow: 0 0 15px #FFFFFF, 0 0 30px rgba(32,178,170,0.5); backdrop-filter: blur(8px);
+}
+.content-box h2 { color: #000000; font-size: 28px; margin-bottom: 18px; }
+.content-box p { color: #000000; font-size: 19px; line-height: 1.9; text-align: justify; }
+
+@media (max-width: 900px) {
+    nav { gap: 3px; width: 100%; padding: 0 5px; }
+    .nav-btn { font-size: 13px; padding: 12px 13px; }
+}
+@media (max-width: 600px) {
+    nav { flex-wrap: wrap; top: 5px; }
+    .nav-btn { font-size: 11px; padding: 8px 10px; }
+    .page { padding: 120px 5% 50px; }
+    .content-box { padding: 25px 20px; }
+    .content-box p { font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="decorations">
+    <div class="dot white-dot dot1"></div><div class="dot white-dot dot2"></div><div class="dot white-dot dot3"></div><div class="dot white-dot dot4"></div><div class="dot white-dot dot5"></div>
+    <div class="dot blue-dot dot6"></div><div class="dot blue-dot dot7"></div><div class="dot blue-dot dot8"></div><div class="dot blue-dot dot9"></div><div class="dot blue-dot dot10"></div>
+</div>
+
+<div class="snow snow1">❄</div><div class="snow snow2">❄</div><div class="snow snow3">❄</div><div class="snow snow4">❄</div><div class="snow snow5">❄</div>
+
+<nav>
+    <a href="index.html" class="nav-btn">Portfolio</a>
+    <a href="preface.html" class="nav-btn active">คำนำ</a>
+    <a href="profile.html" class="nav-btn">ประวัติส่วนตัว</a>
+    <a href="works.html" class="nav-btn">ผลงานและกิจกรรม</a>
+    <a href="contact.html" class="nav-btn">ช่องทางการติดต่อ</a>
+</nav>
+
+<section class="page">
+    <h1 class="page-title">คำนำ</h1>
+    <div class="content-box">
+        <h2>คำนำ</h2>
+        <p>
+            แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับ ประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
+</div>
+</body>
+</html>
