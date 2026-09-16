@@ -1,1 +1,0 @@
-# 34320-Thanatchaporn.github.io
